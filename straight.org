@@ -1,0 +1,146 @@
+#+TITLE: Getting started with straight.el
+#+AUTHOR: T. Gustafsson
+
+* Introduction
+
+There exists a functional package manager for Emacs called straight.el.  It
+is notorious for its complexity but I find it convenient since using Emacs
+on multiple machines and keeping the config in sync can be otherwise tedious.
+
+This post describes my setup and contains hints on using straight.el. Since I'm
+using Dropbox to sync my dotfiles, I have a single init file
+=~/Dropbox/Config/emacs/.emacs= which is symlinked to my home directory via =ln
+-s ~/Dropbox/Config/emacs/.emacs ~/.emacs=.
+
+* Find a list of packages
+
+We are going to create a new =.emacs= from scratch. First you need a list of
+packages to install. By default, straight.el supports MELPA, ELPA and
+Emacsmirror, but you can easily fetch packages from Github and GitLab.  Any
+existing =use-package= macros can be reused.
+
+Suppose we want to have the following packages:
+- =org=
+- =ivy=
+- =counsel=
+- =swiper=
+- =anzu=
+
+* Bootstrapping the config
+
+The first lines of the config are magic.
+
+#+begin_src emacs-lisp
+(defvar bootstrap-version)
+(let ((bootstrap-file
+       (expand-file-name "straight/repos/straight.el/bootstrap.el" user-emacs-directory))
+      (bootstrap-version 5))
+  (unless (file-exists-p bootstrap-file)
+    (with-current-buffer
+        (url-retrieve-synchronously
+         "https://raw.githubusercontent.com/raxod502/straight.el/develop/install.el"
+         'silent 'inhibit-cookies)
+      (goto-char (point-max))
+      (eval-print-last-sexp)))
+  (load bootstrap-file nil 'nomessage))
+#+end_src
+
+On Emacs startup, this will download straight.el install script from Github and
+run it - but only if straight.el is not already installed.
+
+* Installing packages
+
+After running Emacs, you can install packages via =M-x straight-use-package=.
+This installs and enables the package only within the current session and it
+will be gone after you restart Emacs. It's great for trying out new packages!
+
+To permanently install a package, include the following line in your =.emacs=:
+
+#+begin_src emacs-lisp
+(straight-use-package 'org)
+#+end_src
+
+This installs the newest version of =org-mode= directly from its repository at
+=code.orgmode.org=.
+
+**You are advised to install =org= first so that the built-in version is not
+accidentally activated.**
+
+* Installing =use-package=
+
+The macro =use-package= is popular for keeping all package configuration in one
+place. Adding the following lines to =.emacs= will install and enable it.
+
+#+begin_src emacs-lisp
+(straight-use-package 'use-package)
+(setq straight-use-package-by-default t)
+#+end_src
+
+* Installing =ivy=
+
+Now we can write =use-package= macros to install and configure packages:
+
+#+begin_src emacs-lisp
+(use-package ivy
+  :init
+  (ivy-mode 1)
+  (setq ivy-height 12
+        ivy-fixed-height-minibuffer t
+        ivy-use-virtual-buffers t)
+  :bind (("C-x b" . ivy-switch-buffer)
+         ("C-c r" . ivy-resume)
+         ("C-x C-b" . ivy-switch-buffer)))
+
+(use-package counsel
+  :bind (("M-x" . counsel-M-x)
+         ("C-x C-f" . counsel-find-file)
+         ("C-c g" . counsel-ag)
+         ("C-c G" . counsel-git)
+         ("M-y" . counsel-yank-pop)
+         ("C-c C-j" . counsel-imenu)))
+
+(use-package swiper
+  :bind ("C-c s" . swiper))
+#+end_src
+
+* Recipes
+
+You can easily define a new recipe if the package cannot be
+found in any of the supported repositories:
+
+#+begin_src emacs-lisp
+(use-package anzu
+  :straight (anzu
+             :type git
+             :host github
+             :repo "syohex/emacs-anzu")
+  :init (global-anzu-mode +1)
+  :bind ("C-q" . anzu-query-replace-regexp))
+#+end_src
+
+This installs =anzu= from =github.com/syohex/emacs-anzu=.
+
+* A peak under the hood
+
+In =~/.emacs.d/straight= you find two directories: =repos= and =build=.  The
+former contains all cloned git repositories of the installed packages.  If you
+list its contents you notice that there are also some additional packages - the
+dependencies of the ones that we explicitly installed. I like to add these to my
+config but it's not required.
+
+The latter directory contains bytecompiled versions of the package source code
+files.  This is populated automatically by straight.el but once or twice I've
+had to interfere with its contents as straight.el does not yet support custom
+build steps (such as running =make=) during the installation of packages. For
+example, =zmq= (which is a dependency of =jupyter=) I could only install by
+first adding
+
+#+begin_src emacs-lisp
+(straight-use-package
+ '(zmq :type git :host github :repo "dzop/emacs-zmq" :no-build))
+#+end_src
+
+and then launching Emacs. This clones =zmq= to =~/.emacs.d/straight/repos/emacs-zmq=
+but does not build it. Then I'd go to the package's directory, run =make= and create
+a symlink =~/.emacs.d/straight/build/zmq= which points to =~/.emacs.d/straight/repos/emacs-zmq=.
+Finally, I'd remove =:no-build= and restart Emacs.

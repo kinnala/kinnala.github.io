@@ -1,0 +1,6 @@
+#+TITLE: Writings
+#+AUTHOR: T. Gustafsson
+
+I collect here writings related to my pass time activities.
+
+- [[file:straight.org][Getting started with straight.el]]
