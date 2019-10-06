@@ -1,0 +1,4 @@
+* Technical writings
+
+Written using Emacs org-mode and exported to html. The css theme used in the
+exported pages is called [[https://github.com/gongzhitaao/orgcss/][orgcss]], Copyright (c) 2019 gongzhitaao.

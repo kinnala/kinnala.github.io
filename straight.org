@@ -1,5 +1,6 @@
 #+TITLE: Getting started with straight.el
-#+AUTHOR: T. Gustafsson
+#+AUTHOR: T. Gustafsson. Theme: Copyright (c) 2019 [[https://github.com/gongzhitaao/orgcss][gongzhitaao]].
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="https://kinnala.github.io/org.css" />
 
 * Introduction
 
@@ -33,7 +34,9 @@ The first lines of the config are magic.
 #+begin_src emacs-lisp
 (defvar bootstrap-version)
 (let ((bootstrap-file
-       (expand-file-name "straight/repos/straight.el/bootstrap.el" user-emacs-directory))
+       (expand-file-name
+        "straight/repos/straight.el/bootstrap.el"
+        user-emacs-directory))
       (bootstrap-version 5))
   (unless (file-exists-p bootstrap-file)
     (with-current-buffer
@@ -140,7 +143,9 @@ first adding
  '(zmq :type git :host github :repo "dzop/emacs-zmq" :no-build))
 #+end_src
 
-and then launching Emacs. This clones =zmq= to =~/.emacs.d/straight/repos/emacs-zmq=
-but does not build it. Then I'd go to the package's directory, run =make= and create
-a symlink =~/.emacs.d/straight/build/zmq= which points to =~/.emacs.d/straight/repos/emacs-zmq=.
-Finally, I'd remove =:no-build= and restart Emacs.
+and then launching Emacs. This clones =zmq= to
+=~/.emacs.d/straight/repos/emacs-zmq= but does not build it. Then I'd go to the
+package's directory, run =make= and create a symlink
+=~/.emacs.d/straight/build/zmq= which points to
+=~/.emacs.d/straight/repos/emacs-zmq=.  Finally, I'd remove =:no-build= and
+restart Emacs.

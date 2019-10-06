@@ -1,7 +1,8 @@
-#+TITLE: Writings
-#+AUTHOR: T. Gustafsson
+#+TITLE: Technical writings
+#+AUTHOR: T. Gustafsson. Theme: Copyright (c) 2019 [[https://github.com/gongzhitaao/orgcss][gongzhitaao]].
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="https://kinnala.github.io/org.css" />
 
 I collect here writings related to my pass time activities.
 
-- [[file:straight.org]]
-- [[file:ivy-read.org]]
+ - [[file:straight.org]]
+ - [[file:ivy-read.org]]

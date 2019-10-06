@@ -1,22 +1,20 @@
 #+TITLE: Creating simple ivy-read macros
-#+AUTHOR: T. Gustafsson
+#+AUTHOR: T. Gustafsson. Theme: Copyright (c) 2019 [[https://github.com/gongzhitaao/orgcss][gongzhitaao]].
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="https://kinnala.github.io/org.css" />
 
 * Introduction
 
 For Emacs there exists a third-party package for interactive selection of
-candidates called [[http://www.google.com][ivy]].  It's quite easy to create custom tools that use ivy's
+candidates called [[https://github.com/abo-abo/swiper][ivy]].  It's quite easy to create custom tools that use ivy's
 fuzzy matching algorithms.
 
 * Basics
 
 The command =ivy-read= takes a minimum of two arguments:
 
-#+begin_src emacs-lisp
+#+begin_src emacs-lisp :results none
 (ivy-read "prompt: " '("foo" "bar" "baz"))
 #+end_src
-
-#+RESULTS:
-: bar
 
 This allows selecting any candidate from the list ~'("foo" "bar" "baz")~.
 
@@ -31,37 +29,34 @@ generate the candidate list dynamically when the command is first invoked.  You
 can use any Emacs Lisp features to create a list of strings and pass it to
 =ivy-read=:
 
-#+begin_src emacs-lisp
+#+begin_src emacs-lisp :results none
 ; Select a filename from the current directory
 (ivy-read "pick file: "
-          (split-string (shell-command-to-string "ls") "\n"))
+          (split-string
+           (shell-command-to-string "ls") "\n"))
 #+end_src
-
-#+RESULTS:
-: ivy-read.org
 
 * What to do with the result?
 
 By default, the selected candidate is returned by =ivy-read=.  You can optionally
 define an /action/ which is called after the selection:
 
-#+begin_src emacs-lisp
+#+begin_src emacs-lisp :results none
 ; Browse files and open selected file for editing
 (ivy-read "pick file: "
-          (split-string (shell-command-to-string "ls") "\n")
-          :action (lambda (filename) (find-file filename)))
+          (split-string
+           (shell-command-to-string "ls") "\n")
+          :action (lambda (filename)
+                    (find-file filename)))
 #+end_src
 
 Selecting a candidate will now open the respective file.
 
-#+RESULTS:
-: ivy-read.org
-
 * "Real world" example
 
-In my current job, I need to access a huge csv-file which has a human-readable
-name in the first column and an identifier in the second column. It could be
-something like this:
+In my current job, I need to frequently access a huge csv-file which has a
+human-readable name in the first column and an identifier in the second
+column. It could be something like this:
 
 #+begin_src emacs-lisp
 (setq my-csv-file
@@ -72,7 +67,8 @@ something like this:
                        "Brand 2;12\n"
                        "Brand 3;25")))
 
-(shell-command-to-string (concat "cat " my-csv-file))
+(shell-command-to-string
+ (concat "cat " my-csv-file))
 #+end_src
 
 #+RESULTS:
@@ -88,25 +84,26 @@ column.
 Let's create some temporary files for this purpose and a function for finding
 the correct file:
 
-#+begin_src emacs-lisp
+#+begin_src emacs-lisp :results none
 (setq another-files
-      `(("0" ,(make-temp-file "another" nil nil "Lots of Brand 1 stuff ..."))
-        ("12" ,(make-temp-file "another" nil nil "Lots of Brand 2 stuff ..."))
-        ("25" ,(make-temp-file "another" nil nil "Lots of Brand 3 stuff ..."))))
+      `(("0" ,(make-temp-file
+               "another" nil nil
+               "Lots of Brand 1 stuff ..."))
+        ("12" ,(make-temp-file
+                "another" nil nil
+                "Lots of Brand 2 stuff ..."))
+        ("25" ,(make-temp-file
+                "another" nil nil
+                "Lots of Brand 3 stuff ..."))))
 
 (defun return-filename (id)
   (car (cdr (assoc id another-files))))
-
-(return-filename "0")
 #+end_src
-
-#+RESULTS:
-: /tmp/anothergjFFCI
 
 The following function, with help of some common third-party libraries, gets nth
 column from a csv-file:
 
-#+begin_src emacs-lisp
+#+begin_src emacs-lisp :results none
 (require 'dash)
 (require 's)
 (require 'f)
@@ -114,11 +111,9 @@ column from a csv-file:
 (defun csv-nth-column (file sep n)
   "Get n'th column from csv file"
   (let ((lines (cdr (s-split "\n" (f-read file)))))
-    (-map (lambda (line) (nth n (s-split sep line))) lines)))
+    (-map (lambda (line) (nth n (s-split sep line)))
+          lines)))
 #+end_src
-
-#+RESULTS:
-: csv-nth-column
 
 Then my =ivy-read= call would look like this:
 
@@ -133,5 +128,5 @@ Then my =ivy-read= call would look like this:
                         (insert (f-read (return-filename (cdr x))))))))
 #+end_src
 
-Choosing =Branch 1=, this opens another buffer with the text =Lots of Brand 1
-stuff ...=.
+Choosing =Branch 1= opens another buffer with the text =Lots of Brand 1 stuff
+...=.

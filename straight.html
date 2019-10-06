@@ -3,12 +3,12 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2019-04-14 Sun 14:11 -->
+<!-- 2019-10-07 Mon 00:02 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Getting started with straight.el</title>
 <meta name="generator" content="Org mode" />
-<meta name="author" content="T. Gustafsson" />
+<meta name="author" content="T. Gustafsson. Theme: Copyright (c) 2019 [[https://github.com/gongzhitaao/orgcss][gongzhitaao]]gongzhitaao." />
 <style type="text/css">
  <!--/*--><![CDATA[/*><!--*/
   .title  { text-align: center;
@@ -193,6 +193,7 @@
   .org-svg { width: 90%; }
   /*]]>*/-->
 </style>
+<link rel="stylesheet" type="text/css" href="https://kinnala.github.io/org.css" />
 <script type="text/javascript">
 /*
 @licstart  The following is the entire license notice for the
@@ -247,20 +248,20 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgb78c61e">1. Introduction</a></li>
-<li><a href="#org4fcaa82">2. Find a list of packages</a></li>
-<li><a href="#org1606c83">3. Bootstrapping the config</a></li>
-<li><a href="#org0246cf3">4. Installing packages</a></li>
-<li><a href="#orgf44508e">5. Installing <code>use-package</code></a></li>
-<li><a href="#orgf2e143a">6. Installing <code>ivy</code></a></li>
-<li><a href="#org1561850">7. Recipes</a></li>
-<li><a href="#orgda2bf97">8. A peak under the hood</a></li>
+<li><a href="#org693f83f">1. Introduction</a></li>
+<li><a href="#org79cd83d">2. Find a list of packages</a></li>
+<li><a href="#org4db7a3e">3. Bootstrapping the config</a></li>
+<li><a href="#orgfef06ab">4. Installing packages</a></li>
+<li><a href="#org7bbd184">5. Installing <code>use-package</code></a></li>
+<li><a href="#orgc12404b">6. Installing <code>ivy</code></a></li>
+<li><a href="#org5f871a6">7. Recipes</a></li>
+<li><a href="#orgb0dd3b0">8. A peak under the hood</a></li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-orgb78c61e" class="outline-2">
-<h2 id="orgb78c61e"><span class="section-number-2">1</span> Introduction</h2>
+<div id="outline-container-org693f83f" class="outline-2">
+<h2 id="org693f83f"><span class="section-number-2">1</span> Introduction</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 There exists a functional package manager for Emacs called straight.el.  It
@@ -277,8 +278,8 @@ using Dropbox to sync my dotfiles, I have a single init file
 </div>
 </div>
 
-<div id="outline-container-org4fcaa82" class="outline-2">
-<h2 id="org4fcaa82"><span class="section-number-2">2</span> Find a list of packages</h2>
+<div id="outline-container-org79cd83d" class="outline-2">
+<h2 id="org79cd83d"><span class="section-number-2">2</span> Find a list of packages</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 We are going to create a new <code>.emacs</code> from scratch. First you need a list of
@@ -300,8 +301,8 @@ Suppose we want to have the following packages:
 </div>
 </div>
 
-<div id="outline-container-org1606c83" class="outline-2">
-<h2 id="org1606c83"><span class="section-number-2">3</span> Bootstrapping the config</h2>
+<div id="outline-container-org4db7a3e" class="outline-2">
+<h2 id="org4db7a3e"><span class="section-number-2">3</span> Bootstrapping the config</h2>
 <div class="outline-text-2" id="text-3">
 <p>
 The first lines of the config are magic.
@@ -310,7 +311,9 @@ The first lines of the config are magic.
 <div class="org-src-container">
 <pre class="src src-emacs-lisp"><span style="color: #707183;">(</span><span style="color: #0000FF;">defvar</span> <span style="color: #BA36A5;">bootstrap-version</span><span style="color: #707183;">)</span>
 <span style="color: #707183;">(</span><span style="color: #0000FF;">let</span> <span style="color: #7388D6;">(</span><span style="color: #909183;">(</span>bootstrap-file
-       <span style="color: #709870;">(</span>expand-file-name <span style="color: #008000;">"straight/repos/straight.el/bootstrap.el"</span> user-emacs-directory<span style="color: #709870;">)</span><span style="color: #909183;">)</span>
+       <span style="color: #709870;">(</span>expand-file-name
+        <span style="color: #008000;">"straight/repos/straight.el/bootstrap.el"</span>
+        user-emacs-directory<span style="color: #709870;">)</span><span style="color: #909183;">)</span>
       <span style="color: #909183;">(</span>bootstrap-version 5<span style="color: #909183;">)</span><span style="color: #7388D6;">)</span>
   <span style="color: #7388D6;">(</span><span style="color: #0000FF;">unless</span> <span style="color: #909183;">(</span>file-exists-p bootstrap-file<span style="color: #909183;">)</span>
     <span style="color: #909183;">(</span><span style="color: #0000FF;">with-current-buffer</span>
@@ -330,8 +333,8 @@ run it - but only if straight.el is not already installed.
 </div>
 </div>
 
-<div id="outline-container-org0246cf3" class="outline-2">
-<h2 id="org0246cf3"><span class="section-number-2">4</span> Installing packages</h2>
+<div id="outline-container-orgfef06ab" class="outline-2">
+<h2 id="orgfef06ab"><span class="section-number-2">4</span> Installing packages</h2>
 <div class="outline-text-2" id="text-4">
 <p>
 After running Emacs, you can install packages via <code>M-x straight-use-package</code>.
@@ -360,8 +363,8 @@ accidentally activated.</b></b>
 </div>
 </div>
 
-<div id="outline-container-orgf44508e" class="outline-2">
-<h2 id="orgf44508e"><span class="section-number-2">5</span> Installing <code>use-package</code></h2>
+<div id="outline-container-org7bbd184" class="outline-2">
+<h2 id="org7bbd184"><span class="section-number-2">5</span> Installing <code>use-package</code></h2>
 <div class="outline-text-2" id="text-5">
 <p>
 The macro <code>use-package</code> is popular for keeping all package configuration in one
@@ -376,8 +379,8 @@ place. Adding the following lines to <code>.emacs</code> will install and enable
 </div>
 </div>
 
-<div id="outline-container-orgf2e143a" class="outline-2">
-<h2 id="orgf2e143a"><span class="section-number-2">6</span> Installing <code>ivy</code></h2>
+<div id="outline-container-orgc12404b" class="outline-2">
+<h2 id="orgc12404b"><span class="section-number-2">6</span> Installing <code>ivy</code></h2>
 <div class="outline-text-2" id="text-6">
 <p>
 Now we can write <code>use-package</code> macros to install and configure packages:
@@ -409,8 +412,8 @@ Now we can write <code>use-package</code> macros to install and configure packag
 </div>
 </div>
 
-<div id="outline-container-org1561850" class="outline-2">
-<h2 id="org1561850"><span class="section-number-2">7</span> Recipes</h2>
+<div id="outline-container-org5f871a6" class="outline-2">
+<h2 id="org5f871a6"><span class="section-number-2">7</span> Recipes</h2>
 <div class="outline-text-2" id="text-7">
 <p>
 You can easily define a new recipe if the package cannot be
@@ -434,8 +437,8 @@ This installs <code>anzu</code> from <code>github.com/syohex/emacs-anzu</code>.
 </div>
 </div>
 
-<div id="outline-container-orgda2bf97" class="outline-2">
-<h2 id="orgda2bf97"><span class="section-number-2">8</span> A peak under the hood</h2>
+<div id="outline-container-orgb0dd3b0" class="outline-2">
+<h2 id="orgb0dd3b0"><span class="section-number-2">8</span> A peak under the hood</h2>
 <div class="outline-text-2" id="text-8">
 <p>
 In <code>~/.emacs.d/straight</code> you find two directories: <code>repos</code> and <code>build</code>.  The
@@ -461,17 +464,19 @@ first adding
 </div>
 
 <p>
-and then launching Emacs. This clones <code>zmq</code> to <code>~/.emacs.d/straight/repos/emacs-zmq</code>
-but does not build it. Then I'd go to the package's directory, run <code>make</code> and create
-a symlink <code>~/.emacs.d/straight/build/zmq</code> which points to <code>~/.emacs.d/straight/repos/emacs-zmq</code>.
-Finally, I'd remove <code>:no-build</code> and restart Emacs.
+and then launching Emacs. This clones <code>zmq</code> to
+<code>~/.emacs.d/straight/repos/emacs-zmq</code> but does not build it. Then I'd go to the
+package's directory, run <code>make</code> and create a symlink
+<code>~/.emacs.d/straight/build/zmq</code> which points to
+<code>~/.emacs.d/straight/repos/emacs-zmq</code>.  Finally, I'd remove <code>:no-build</code> and
+restart Emacs.
 </p>
 </div>
 </div>
 </div>
 <div id="postamble" class="status">
-<p class="author">Author: T. Gustafsson</p>
-<p class="date">Created: 2019-04-14 Sun 14:11</p>
+<p class="author">Author: T. Gustafsson. Theme: Copyright (c) 2019 <a href="https://github.com/gongzhitaao/orgcss">gongzhitaao</a>.</p>
+<p class="date">Created: 2019-10-07 Mon 00:02</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
