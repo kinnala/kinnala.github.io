@@ -3,4 +3,5 @@
 
 I collect here writings related to my pass time activities.
 
-- [[file:straight.org][Getting started with straight.el]]
+- [[file:straight.org]]
+- [[file:ivy-read.org]]

@@ -1,0 +1,137 @@
+#+TITLE: Creating simple ivy-read macros
+#+AUTHOR: T. Gustafsson
+
+* Introduction
+
+For Emacs there exists a third-party package for interactive selection of
+candidates called [[http://www.google.com][ivy]].  It's quite easy to create custom tools that use ivy's
+fuzzy matching algorithms.
+
+* Basics
+
+The command =ivy-read= takes a minimum of two arguments:
+
+#+begin_src emacs-lisp
+(ivy-read "prompt: " '("foo" "bar" "baz"))
+#+end_src
+
+#+RESULTS:
+: bar
+
+This allows selecting any candidate from the list ~'("foo" "bar" "baz")~.
+
+*Hint!* You can try these commands in Emacs by opening =*scratch*= buffer,
+typing in any of the Emacs Lisp commands, and pressing =C-x C-e= while having
+the point at the final closing parenthesis.
+
+* Programmatic generation of candidates
+
+Many interesting commands, such as =ivy-switch-buffer= and =counsel-M-x=,
+generate the candidate list dynamically when the command is first invoked.  You
+can use any Emacs Lisp features to create a list of strings and pass it to
+=ivy-read=:
+
+#+begin_src emacs-lisp
+; Select a filename from the current directory
+(ivy-read "pick file: "
+          (split-string (shell-command-to-string "ls") "\n"))
+#+end_src
+
+#+RESULTS:
+: ivy-read.org
+
+* What to do with the result?
+
+By default, the selected candidate is returned by =ivy-read=.  You can optionally
+define an /action/ which is called after the selection:
+
+#+begin_src emacs-lisp
+; Browse files and open selected file for editing
+(ivy-read "pick file: "
+          (split-string (shell-command-to-string "ls") "\n")
+          :action (lambda (filename) (find-file filename)))
+#+end_src
+
+Selecting a candidate will now open the respective file.
+
+#+RESULTS:
+: ivy-read.org
+
+* "Real world" example
+
+In my current job, I need to access a huge csv-file which has a human-readable
+name in the first column and an identifier in the second column. It could be
+something like this:
+
+#+begin_src emacs-lisp
+(setq my-csv-file
+      (make-temp-file "csv" nil nil
+                      (concat
+                       "NAME;ID\n"
+                       "Brand 1;0\n"
+                       "Brand 2;12\n"
+                       "Brand 3;25")))
+
+(shell-command-to-string (concat "cat " my-csv-file))
+#+end_src
+
+#+RESULTS:
+: NAME;ID
+: Brand 1;0
+: Brand 2;12
+: Brand 3;25
+
+When I've decided which row I want to explore, I need to read the contents of
+another file which can be found with the help of the identifier in the second
+column.
+
+Let's create some temporary files for this purpose and a function for finding
+the correct file:
+
+#+begin_src emacs-lisp
+(setq another-files
+      `(("0" ,(make-temp-file "another" nil nil "Lots of Brand 1 stuff ..."))
+        ("12" ,(make-temp-file "another" nil nil "Lots of Brand 2 stuff ..."))
+        ("25" ,(make-temp-file "another" nil nil "Lots of Brand 3 stuff ..."))))
+
+(defun return-filename (id)
+  (car (cdr (assoc id another-files))))
+
+(return-filename "0")
+#+end_src
+
+#+RESULTS:
+: /tmp/anothergjFFCI
+
+The following function, with help of some common third-party libraries, gets nth
+column from a csv-file:
+
+#+begin_src emacs-lisp
+(require 'dash)
+(require 's)
+(require 'f)
+
+(defun csv-nth-column (file sep n)
+  "Get n'th column from csv file"
+  (let ((lines (cdr (s-split "\n" (f-read file)))))
+    (-map (lambda (line) (nth n (s-split sep line))) lines)))
+#+end_src
+
+#+RESULTS:
+: csv-nth-column
+
+Then my =ivy-read= call would look like this:
+
+#+begin_src emacs-lisp :results none
+(ivy-read "pick a brand to study: "
+          (-zip
+           (csv-nth-column my-csv-file ";" 0)
+           (csv-nth-column my-csv-file ";" 1))
+          :action (lambda (x)
+                    (with-help-window "*brand info*"
+                      (with-current-buffer "*brand info*"
+                        (insert (f-read (return-filename (cdr x))))))))
+#+end_src
+
+Choosing =Branch 1=, this opens another buffer with the text =Lots of Brand 1
+stuff ...=.

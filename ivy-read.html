@@ -3,10 +3,10 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2019-10-06 Sun 16:35 -->
+<!-- 2019-10-06 Sun 16:32 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Writings</title>
+<title>Creating simple ivy-read macros</title>
 <meta name="generator" content="Org mode" />
 <meta name="author" content="T. Gustafsson" />
 <style type="text/css">
@@ -242,19 +242,216 @@ for the JavaScript code in this tag.
 </head>
 <body>
 <div id="content">
-<h1 class="title">Writings</h1>
+<h1 class="title">Creating simple ivy-read macros</h1>
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#org7356698">1. Introduction</a></li>
+<li><a href="#org5f70622">2. Basics</a></li>
+<li><a href="#orga85d255">3. Programmatic generation of candidates</a></li>
+<li><a href="#org065662e">4. What to do with the result?</a></li>
+<li><a href="#org208fa3a">5. "Real world" example</a></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org7356698" class="outline-2">
+<h2 id="org7356698"><span class="section-number-2">1</span> Introduction</h2>
+<div class="outline-text-2" id="text-1">
 <p>
-I collect here writings related to my pass time activities.
+For Emacs there exists a third-party package for interactive selection of
+candidates called <a href="http://www.google.com">ivy</a>.  It's quite easy to create custom tools that use ivy's
+fuzzy matching algorithms.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org5f70622" class="outline-2">
+<h2 id="org5f70622"><span class="section-number-2">2</span> Basics</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+The command <code>ivy-read</code> takes a minimum of two arguments:
 </p>
 
-<ul class="org-ul">
-<li><a href="straight.html">straight.html</a></li>
-<li><a href="ivy-read.html">ivy-read.html</a></li>
-</ul>
+<div class="org-src-container">
+<pre class="src src-emacs-lisp">(ivy-read "prompt: " '("foo" "bar" "baz"))
+</pre>
+</div>
+
+<pre class="example">
+bar
+</pre>
+
+
+<p>
+This allows selecting any candidate from the list <code>'("foo" "bar" "baz")</code>.
+</p>
+
+<p>
+<b>Hint!</b> You can try these commands in Emacs by opening <code>*scratch*</code> buffer,
+typing in any of the Emacs Lisp commands, and pressing <code>C-x C-e</code> while having
+the point at the final closing parenthesis.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orga85d255" class="outline-2">
+<h2 id="orga85d255"><span class="section-number-2">3</span> Programmatic generation of candidates</h2>
+<div class="outline-text-2" id="text-3">
+<p>
+Many interesting commands, such as <code>ivy-switch-buffer</code> and <code>counsel-M-x</code>,
+generate the candidate list dynamically when the command is first invoked.  You
+can use any Emacs Lisp features to create a list of strings and pass it to
+<code>ivy-read</code>:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-emacs-lisp">; Select a filename from the current directory
+(ivy-read "pick file: "
+          (split-string (shell-command-to-string "ls") "\n"))
+</pre>
+</div>
+
+<pre class="example">
+ivy-read.org
+</pre>
+</div>
+</div>
+
+<div id="outline-container-org065662e" class="outline-2">
+<h2 id="org065662e"><span class="section-number-2">4</span> What to do with the result?</h2>
+<div class="outline-text-2" id="text-4">
+<p>
+By default, the selected candidate is returned by <code>ivy-read</code>.  You can optionally
+define an <i>action</i> which is called after the selection:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-emacs-lisp">; Browse files and open selected file for editing
+(ivy-read "pick file: "
+          (split-string (shell-command-to-string "ls") "\n")
+          :action (lambda (filename) (find-file filename)))
+</pre>
+</div>
+
+<p>
+Selecting a candidate will now open the respective file.
+</p>
+
+<pre class="example">
+ivy-read.org
+</pre>
+</div>
+</div>
+
+<div id="outline-container-org208fa3a" class="outline-2">
+<h2 id="org208fa3a"><span class="section-number-2">5</span> "Real world" example</h2>
+<div class="outline-text-2" id="text-5">
+<p>
+In my current job, I need to access a huge csv-file which has a human-readable
+name in the first column and an identifier in the second column. It could be
+something like this:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-emacs-lisp">(setq my-csv-file
+      (make-temp-file "csv" nil nil
+                      (concat
+                       "NAME;ID\n"
+                       "Brand 1;0\n"
+                       "Brand 2;12\n"
+                       "Brand 3;25")))
+
+(shell-command-to-string (concat "cat " my-csv-file))
+</pre>
+</div>
+
+<pre class="example">
+NAME;ID
+Brand 1;0
+Brand 2;12
+Brand 3;25
+</pre>
+
+
+<p>
+When I've decided which row I want to explore, I need to read the contents of
+another file which can be found with the help of the identifier in the second
+column.
+</p>
+
+<p>
+Let's create some temporary files for this purpose and a function for finding
+the correct file:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-emacs-lisp">(setq another-files
+      `(("0" ,(make-temp-file "another" nil nil "Lots of Brand 1 stuff ..."))
+        ("12" ,(make-temp-file "another" nil nil "Lots of Brand 2 stuff ..."))
+        ("25" ,(make-temp-file "another" nil nil "Lots of Brand 3 stuff ..."))))
+
+(defun return-filename (id)
+  (car (cdr (assoc id another-files))))
+
+(return-filename "0")
+</pre>
+</div>
+
+<pre class="example">
+/tmp/anothergjFFCI
+</pre>
+
+
+<p>
+The following function, with help of some common third-party libraries, gets nth
+column from a csv-file:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-emacs-lisp">(require 'dash)
+(require 's)
+(require 'f)
+
+(defun csv-nth-column (file sep n)
+  "Get n'th column from csv file"
+  (let ((lines (cdr (s-split "\n" (f-read file)))))
+    (-map (lambda (line) (nth n (s-split sep line))) lines)))
+</pre>
+</div>
+
+<pre class="example">
+csv-nth-column
+</pre>
+
+
+<p>
+Then my <code>ivy-read</code> call would look like this:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-emacs-lisp">(ivy-read "pick a brand to study: "
+          (-zip
+           (csv-nth-column my-csv-file ";" 0)
+           (csv-nth-column my-csv-file ";" 1))
+          :action (lambda (x)
+                    (with-help-window "*brand info*"
+                      (with-current-buffer "*brand info*"
+                        (insert (f-read (return-filename (cdr x))))))))
+</pre>
+</div>
+
+<p>
+Choosing <code>Branch 1</code>, this opens another buffer with the text <code>Lots of Brand 1
+stuff ...</code>.
+</p>
+</div>
+</div>
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: T. Gustafsson</p>
-<p class="date">Created: 2019-10-06 Sun 16:35</p>
+<p class="date">Created: 2019-10-06 Sun 16:32</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
