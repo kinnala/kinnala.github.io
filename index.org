@@ -1,8 +1,37 @@
-#+TITLE: Technical writings
+#+TITLE:  Personal stuff
 #+AUTHOR: T. Gustafsson. Theme: Copyright (c) 2019 [[https://github.com/gongzhitaao/orgcss][gongzhitaao]].
 #+HTML_HEAD: <link rel="stylesheet" type="text/css" href="https://kinnala.github.io/org.css" />
 
-I collect here writings related to my pass time activities.
+* Research
+
+I'm an applied mathematician studying finite element methods.  Currently I'm
+employed by [[http://math.aalto.fi/en/][Aalto University, Department of Mathematics and Systems Analysis]] as
+a post-doctoral researcher, working in the project [[https://akareport.aka.fi/ibi_apps/WFServlet?IBIF_ex=x_HakKuvaus2&CLICKED_ON=&HAKNRO1=324611&UILANG=fi&TULOSTE=HTML][Effektiva finita element
+metoder inom kontinuummekanik]], 2019--22. 
+
+In 2018, I finished my PhD thesis on [[https://aaltodoc.aalto.fi/handle/123456789/31486][Finite Element Methods for Contact Problems]]
+which was funded by [[https://skr.fi/][the Finnish Cultural Foundation]]. You can find my articles [[https://orcid.org/0000-0003-1611-5032][in
+Orcid]].  Here is a word cloud describing my research, created using [[https://scimeter.org/clouds/][scimeter.org]]:
+
+[[file:article_word_cloud.svg]]
+
+During my studies, I wrote an open source Python package for finite element
+assembly called [[https://github.com/kinnala/scikit-fem][scikit-fem]]. I still maintain and use it actively, and think its
+especially useful for learning about finite element methods.
+You can find examples from the [[https://kinnala.github.io/scikit-fem-docs/learning.html][documentation]].
+
+* Emacs
+
+I use Emacs every day for activities such as coding, writing, and being
+organized.  You can find my [[https://github.com/kinnala/emacs.d][configuration files from Github]]. Here are some
+tutorials I've written:
 
  - [[file:straight.org]]
  - [[file:ivy-read.org]]
+
+* Literature
+
+I like to read and listen to fantasy books. Previously I tracked finished books
+at Goodreads but now I'm using org-mode instead.
+
+ - file:books.org

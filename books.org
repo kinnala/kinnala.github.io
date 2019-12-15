@@ -1,0 +1,52 @@
+#+TITLE: List of books
+#+AUTHOR: T. Gustafsson. Theme: Copyright (c) 2019 [[https://github.com/gongzhitaao/orgcss][gongzhitaao]].
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="https://kinnala.github.io/org.css" />
+
+| Author                | Series                   | Book                        | Status   | Audio |
+|-----------------------+--------------------------+-----------------------------+----------+-------|
+| Brandon Sanderson     | Mistborn                 | The Final Empire            | Finished |       |
+|                       |                          | The Well of Ascension       | Finished | Yes   |
+|                       |                          | The Hero of Ages            | Finished | Yes   |
+|                       |                          | The Alloy of Law            | Finished |       |
+|                       |                          | Shadows of Self             | Finished | Yes   |
+|                       |                          | The Bands of Mourning       | Finished | Yes   |
+|                       |                          | The Lost Metal              | Upcoming |       |
+|                       | The Stormlight Archive   | The Way of Kings            | Finished |       |
+|                       |                          | Words of Radiance           | Finished |       |
+|                       |                          | Oathbringer                 | Finished | Yes   |
+|                       |                          | Rhythm of War               | Upcoming |       |
+| Robert Jordan         | The Wheel of Time        | The Eye of the World        | Finished |       |
+|                       |                          | The Great Hunt              | Finished |       |
+|                       |                          | The Dragon Reborn           | Finished |       |
+|                       |                          | The Shadow Rising           | Finished |       |
+|                       |                          | The Fires of Heaven         | Finished |       |
+|                       |                          | Lord of Chaos               | Finished |       |
+|                       |                          | A Crown of Swords           | Finished |       |
+|                       |                          | The Path of Daggers         | Finished |       |
+|                       |                          | Winter's Heart              | Finished |       |
+|                       |                          | Crossroads of Twilight      | Finished |       |
+|                       |                          | Knife of Dreams             | Finished |       |
+|                       |                          | The Gathering Storm         | Finished |       |
+|                       |                          | Towers of Midnight          | Finished |       |
+|                       |                          | A Memory of Light           | Finished |       |
+|                       |                          | New Spring                  | Acquired |       |
+| Scott Lynch           | Gentleman Bastard        | The Lies of Locke Lamora    | Finished | Yes   |
+|                       |                          | Red Seas Under Red Skies    | Finished | Yes   |
+|                       |                          | The Republic of Thieves     | Finished | Yes   |
+|                       |                          | The Thorn of Emberlain      | Upcoming |       |
+| Leigh Bardugo         | Six of Crows duology     | Six of Crows                | Finished | Yes   |
+|                       |                          | Crooked Kingdom             | Finished | Yes   |
+| Brent Weeks           | Lightbringer             | The Black Prism             | Finished | Yes   |
+|                       |                          | The Blinding Knife          | Finished | Yes   |
+|                       |                          | The Broken Eye              | Finished | Yes   |
+|                       |                          | The Blood Mirror            | Finished | Yes   |
+|                       |                          | The Burning White           | Released |       |
+| Brian McClellan       | The Powder Mage          | Promise of Blood            | Finished | Yes   |
+|                       |                          | The Crimson Campaign        | Finished | Yes   |
+|                       |                          | The Autumn Republic         | Finished | Yes   |
+|                       | Gods of Blood and Powder | Sins of Empire              | Finished | Yes   |
+|                       |                          | Wrath of Empire             | Acquired | Yes   |
+| Robert Jackson Bennet | Founders                 | Foundryside                 | Acquired | Yes   |
+| James Islington       | The Licanius Trilogy     | The Shadow of What Was Lost | Finished | Yes   |
+|                       |                          | An Echo of Things to Come   | Acquired | Yes   |
+|                       |                          | The Light of All That Falls | Released |       |
