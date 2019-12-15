@@ -50,3 +50,17 @@
 | James Islington       | The Licanius Trilogy     | The Shadow of What Was Lost | Finished | Yes   |
 |                       |                          | An Echo of Things to Come   | Acquired | Yes   |
 |                       |                          | The Light of All That Falls | Released |       |
+| Patrick Rothfuss      | The Kingkiller Chronicle | The Name of the Wind        | Finished | Both  |
+|                       |                          | The Wise Man's Fear         | Finished | Both  |
+|                       |                          | The Doors of Stone          | Upcoming |       |
+| Joe Abercrombie       | The First Law            | The Blade Itself            | Finished | Yes   |
+|                       |                          | Before They Are Hanged      | Finished | Yes   |
+|                       |                          | Last Argument of Kings      | Finished | Yes   |
+| Robin Hobb            | The Farseer Trilogy      | Assassin's Apprentice       | Finished | Yes   |
+|                       |                          | Royal Assassin              | Finished | Yes   |
+|                       |                          | Assassin's Quest            | Finished | Yes   |
+|                       | Tawny Man Trilogy        | Fool's Errand               | Finished | Yes   |
+|                       |                          | The Golden Fool             | Ongoing  | Yes   |
+| Nicholas Eames        | The Band                 | Kings of the Wyld           | Finished | Yes   |
+| Dan Simmons           | Hyperion Cantos          | Hyperion                    | Finished | Yes   |
+|                       |                          | The Fall of Hyperion        | Finished | Yes   |
