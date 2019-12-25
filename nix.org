@@ -1,0 +1,79 @@
+#+TITLE: Managing Emacs with Nix
+#+AUTHOR: T. Gustafsson. Theme: Copyright (c) 2019 [[https://github.com/gongzhitaao/orgcss][gongzhitaao]].
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="https://kinnala.github.io/org.css" />
+
+* Introduction
+
+Recently I discovered [[https://nixos.org/nix/][Nix]], the purely functional package manager, via a
+colleague.  I spent some evenings reading about it, felt convinced, and during
+the holidays defined my development environment using Nix.
+I'm now running Ubuntu 19.10 with development-related software installed
+using Nix.
+
+* Emacs configuration
+
+I was able to reuse my [[https://github.com/kinnala/emacs.d][Emacs configuration]] previously based on straight.el and
+use-package macros.  I deleted the straight.el bootstrapping code and
+straight.el-specific extensions in use-package macros.
+There wasn't any particular issue with straight.el but I felt that
+the features relevant to me were already covered by Nix.
+
+* Overlay for Emacs
+
+Next I created a Nix overlay which installs Emacs with various packages from
+Elpa/Melpa (with versions defined in the official nixpkgs) and barfs my init.el
+to the resulting package:
+#+begin_src nix
+self: super: {
+  emacs_config = self.writeText "default.el" (builtins.readFile ./init.el);
+  emacs = self.emacsWithPackages (epkgs: (with epkgs.melpaPackages; [
+    use-package
+    hydra
+    ivy
+    counsel
+    swiper
+    transient
+    magit
+    which-key
+    exec-path-from-shell
+    expand-region
+    multiple-cursors
+    json-mode
+    leuven-theme
+    highlight-indentation
+    yaml-mode
+    wgrep
+    phi-search
+    docker
+    restclient
+    ob-restclient
+    htmlize
+    diredfl
+    python-pytest
+    dired-k
+    nix-mode
+    anaconda-mode
+  ]) ++ (with epkgs.elpaPackages; [
+    csv-mode
+    org
+  ]) ++ [ (self.runCommand "default.el" {} ''
+mkdir -p $out/share/emacs/site-lisp
+cp ${self.emacs_config} $out/share/emacs/site-lisp/default.el
+'') ]);
+}
+#+end_src
+The overlay "redefines" the package =emacs= in the official repositories with
+something that has the additional packages and my configuration included.
+This file should be put to =$HOME/.config/nixpkgs/overlays= together with =init.el=
+so that it is automatically used commands like =nix-env=.
+Installing (or reinstalling) the overlay can be done by
+#+begin_src sh
+nix-env -iA nixpkgs.emacs
+#+end_src
+
+* Conclusion
+
+In future I might look into [[https://github.com/nix-community/emacs-overlay][nix-community/emacs-overlay]] to get more recent Melpa
+packages as this approach is pinned to the versions defined in the official
+Nixpkgs repository.  However, for now I've been happy with this new approach
+and installing the same environment to another computer has been a breeze.

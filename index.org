@@ -28,6 +28,7 @@ tutorials I've written:
 
  - [[file:straight.org]]
  - [[file:ivy-read.org]]
+ - [[file:nix.org]]
 
 * Literature
 
