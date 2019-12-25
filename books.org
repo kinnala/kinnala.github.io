@@ -41,6 +41,7 @@
 |                       |                          | The Broken Eye              | Finished | Yes   |
 |                       |                          | The Blood Mirror            | Finished | Yes   |
 |                       |                          | The Burning White           | Released |       |
+|                       | The Night Angel          | The Way of Shadows          | Finished | Yes   |
 | Brian McClellan       | The Powder Mage          | Promise of Blood            | Finished | Yes   |
 |                       |                          | The Crimson Campaign        | Finished | Yes   |
 |                       |                          | The Autumn Republic         | Finished | Yes   |
@@ -64,3 +65,4 @@
 | Nicholas Eames        | The Band                 | Kings of the Wyld           | Finished | Yes   |
 | Dan Simmons           | Hyperion Cantos          | Hyperion                    | Finished | Yes   |
 |                       |                          | The Fall of Hyperion        | Finished | Yes   |
+| Michael J. Sullivan   | The Riyria Revelations   | Theft of Swords             | Finished | Yes   |

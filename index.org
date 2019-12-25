@@ -31,7 +31,7 @@ tutorials I've written:
 
 * Literature
 
-I like to read and listen to fantasy books. Previously I tracked finished books
-at Goodreads but now I'm using org-mode instead.
+I like to read and listen to fantasy books.  Here is a list of books I've read
+since 2014:
 
  - file:books.org
