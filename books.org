@@ -61,7 +61,8 @@
 |                       |                          | Royal Assassin              | Finished | Yes   |
 |                       |                          | Assassin's Quest            | Finished | Yes   |
 |                       | Tawny Man Trilogy        | Fool's Errand               | Finished | Yes   |
-|                       |                          | The Golden Fool             | Ongoing  | Yes   |
+|                       |                          | The Golden Fool             | Finished | Yes   |
+|                       |                          | Fool's Fate                 | Ongoing  | Yes   |
 | Nicholas Eames        | The Band                 | Kings of the Wyld           | Finished | Yes   |
 | Dan Simmons           | Hyperion Cantos          | Hyperion                    | Finished | Yes   |
 |                       |                          | The Fall of Hyperion        | Finished | Yes   |
