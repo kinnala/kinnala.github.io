@@ -1,0 +1,19 @@
+body {
+    margin: 2% auto;
+}
+
+@media screen and (min-width: 600px) {
+    body {
+        font-size: 18px;
+    }
+}
+
+@media screen and (min-width: 910px) {
+    body {
+        width: 900px;
+    }
+}
+
+table {
+    margin: 0 auto;
+}

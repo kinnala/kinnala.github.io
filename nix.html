@@ -3,12 +3,12 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2019-12-25 Wed 23:10 -->
+<!-- 2020-02-06 Thu 00:13 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Managing Emacs with Nix</title>
 <meta name="generator" content="Org mode" />
-<meta name="author" content="T. Gustafsson. Theme: Copyright (c) 2019 [[https://github.com/gongzhitaao/orgcss][gongzhitaao]]gongzhitaao." />
+<meta name="author" content="T. Gustafsson" />
 <style type="text/css">
  <!--/*--><![CDATA[/*><!--*/
   .title  { text-align: center;
@@ -193,7 +193,7 @@
   .org-svg { width: 90%; }
   /*]]>*/-->
 </style>
-<link rel="stylesheet" type="text/css" href="https://kinnala.github.io/org.css" />
+<link rel="stylesheet" type="text/css" href="org2.css" />
 <script type="text/javascript">
 /*
 @licstart  The following is the entire license notice for the
@@ -248,16 +248,18 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgc5465c3">1. Introduction</a></li>
-<li><a href="#org2f21307">2. Emacs configuration</a></li>
-<li><a href="#orgad28f05">3. Overlay for Emacs</a></li>
-<li><a href="#org031da1a">4. Conclusion</a></li>
+<li><a href="#org7428a18">1. Introduction</a></li>
+<li><a href="#orgba2448c">2. Overlay for Emacs</a></li>
+<li><a href="#orgf7099fe">3. Conclusion</a></li>
 </ul>
 </div>
 </div>
+<ul class="org-ul">
+<li><span class="timestamp-wrapper"><span class="timestamp">&lt;2020-02-05 Wed&gt; </span></span> Update: I've since moved over to using the <a href="config.html">cutting edge Emacs overlay</a>.</li>
+</ul>
 
-<div id="outline-container-orgc5465c3" class="outline-2">
-<h2 id="orgc5465c3"><span class="section-number-2">1</span> Introduction</h2>
+<div id="outline-container-org7428a18" class="outline-2">
+<h2 id="org7428a18"><span class="section-number-2">1</span> Introduction</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 Recently I discovered <a href="https://nixos.org/nix/">Nix</a>, the purely functional package manager, via a
@@ -269,22 +271,9 @@ using Nix.
 </div>
 </div>
 
-<div id="outline-container-org2f21307" class="outline-2">
-<h2 id="org2f21307"><span class="section-number-2">2</span> Emacs configuration</h2>
+<div id="outline-container-orgba2448c" class="outline-2">
+<h2 id="orgba2448c"><span class="section-number-2">2</span> Overlay for Emacs</h2>
 <div class="outline-text-2" id="text-2">
-<p>
-I was able to reuse my <a href="https://github.com/kinnala/emacs.d">Emacs configuration</a> previously based on straight.el and
-use-package macros.  I deleted the straight.el bootstrapping code and
-straight.el-specific extensions in use-package macros.
-There wasn't any particular issue with straight.el but I felt that
-the features relevant to me were already covered by Nix.
-</p>
-</div>
-</div>
-
-<div id="outline-container-orgad28f05" class="outline-2">
-<h2 id="orgad28f05"><span class="section-number-2">3</span> Overlay for Emacs</h2>
-<div class="outline-text-2" id="text-3">
 <p>
 Next I created a Nix overlay which installs Emacs with various packages from
 Elpa/Melpa (with versions defined in the official nixpkgs) and barfs my init.el
@@ -292,41 +281,41 @@ to the resulting package:
 </p>
 <div class="org-src-container">
 <pre class="src src-nix">self: super: {
-<span style="color: #9B9B9B; background-color: #ededdc;"> </span> <span style="color: #BA36A5;">emacs_config</span> = self.writeText <span style="color: #008000;">"default.el"</span> (builtins.readFile <span style="color: #D0372D;">./init.el</span>);
-<span style="color: #9B9B9B; background-color: #ededdc;"> </span> <span style="color: #BA36A5;">emacs</span> = self.emacsWithPackages (epkgs: (<span style="color: #0000FF;">with</span> epkgs.melpaPackages; [
-<span style="color: #9B9B9B; background-color: #ededdc;"> </span>   use-package
-<span style="color: #9B9B9B; background-color: #ededdc;"> </span>   hydra
-<span style="color: #9B9B9B; background-color: #ededdc;"> </span>   ivy
-<span style="color: #9B9B9B; background-color: #ededdc;"> </span>   counsel
-<span style="color: #9B9B9B; background-color: #ededdc;"> </span>   swiper
-<span style="color: #9B9B9B; background-color: #ededdc;"> </span>   transient
-<span style="color: #9B9B9B; background-color: #ededdc;"> </span>   magit
-<span style="color: #9B9B9B; background-color: #ededdc;"> </span>   which-key
-<span style="color: #9B9B9B; background-color: #ededdc;"> </span>   exec-path-from-shell
-<span style="color: #9B9B9B; background-color: #ededdc;"> </span>   expand-region
-<span style="color: #9B9B9B; background-color: #ededdc;"> </span>   multiple-cursors
-<span style="color: #9B9B9B; background-color: #ededdc;"> </span>   json-mode
-<span style="color: #9B9B9B; background-color: #ededdc;"> </span>   leuven-theme
-<span style="color: #9B9B9B; background-color: #ededdc;"> </span>   highlight-indentation
-<span style="color: #9B9B9B; background-color: #ededdc;"> </span>   yaml-mode
-<span style="color: #9B9B9B; background-color: #ededdc;"> </span>   wgrep
-<span style="color: #9B9B9B; background-color: #ededdc;"> </span>   phi-search
-<span style="color: #9B9B9B; background-color: #ededdc;"> </span>   docker
-<span style="color: #9B9B9B; background-color: #ededdc;"> </span>   restclient
-<span style="color: #9B9B9B; background-color: #ededdc;"> </span>   ob-restclient
-<span style="color: #9B9B9B; background-color: #ededdc;"> </span>   htmlize
-<span style="color: #9B9B9B; background-color: #ededdc;"> </span>   diredfl
-<span style="color: #9B9B9B; background-color: #ededdc;"> </span>   python-pytest
-<span style="color: #9B9B9B; background-color: #ededdc;"> </span>   dired-k
-<span style="color: #9B9B9B; background-color: #ededdc;"> </span>   nix-mode
-<span style="color: #9B9B9B; background-color: #ededdc;"> </span>   anaconda-mode
-<span style="color: #9B9B9B; background-color: #ededdc;"> </span> ]) ++ (<span style="color: #0000FF;">with</span> epkgs.elpaPackages; [
-<span style="color: #9B9B9B; background-color: #ededdc;"> </span>   csv-mode
-<span style="color: #9B9B9B; background-color: #ededdc;"> </span>   org
-<span style="color: #9B9B9B; background-color: #ededdc;"> </span> ]) ++ [ (self.runCommand <span style="color: #008000;">"default.el"</span> {} <span style="color: #008000;">''</span>
-<span style="color: #008000;">mkdir -p $out/share/emacs/site-lisp</span>
-<span style="color: #008000;">cp </span><span style="color: #808080;">${</span>self.emacs_config<span style="color: #808080;">}</span><span style="color: #008000;"> $out/share/emacs/site-lisp/default.el</span>
-<span style="color: #008000;">''</span>) ]);
+<span style="color: #9e9e9e; background-color: #d7d7af;"> </span> <span style="color: #ff8700;">emacs_config</span> = self.writeText <span style="color: #ff1f8b;">"default.el"</span> (builtins.readFile <span style="color: #1f5bff;">./init.el</span>);
+<span style="color: #9e9e9e; background-color: #d7d7af;"> </span> <span style="color: #ff8700;">emacs</span> = self.emacsWithPackages (epkgs: (<span style="color: #00af00;">with</span> epkgs.melpaPackages; [
+<span style="color: #9e9e9e; background-color: #d7d7af;"> </span>   use-package
+<span style="color: #9e9e9e; background-color: #d7d7af;"> </span>   hydra
+<span style="color: #9e9e9e; background-color: #d7d7af;"> </span>   ivy
+<span style="color: #9e9e9e; background-color: #d7d7af;"> </span>   counsel
+<span style="color: #9e9e9e; background-color: #d7d7af;"> </span>   swiper
+<span style="color: #9e9e9e; background-color: #d7d7af;"> </span>   transient
+<span style="color: #9e9e9e; background-color: #d7d7af;"> </span>   magit
+<span style="color: #9e9e9e; background-color: #d7d7af;"> </span>   which-key
+<span style="color: #9e9e9e; background-color: #d7d7af;"> </span>   exec-path-from-shell
+<span style="color: #9e9e9e; background-color: #d7d7af;"> </span>   expand-region
+<span style="color: #9e9e9e; background-color: #d7d7af;"> </span>   multiple-cursors
+<span style="color: #9e9e9e; background-color: #d7d7af;"> </span>   json-mode
+<span style="color: #9e9e9e; background-color: #d7d7af;"> </span>   leuven-theme
+<span style="color: #9e9e9e; background-color: #d7d7af;"> </span>   highlight-indentation
+<span style="color: #9e9e9e; background-color: #d7d7af;"> </span>   yaml-mode
+<span style="color: #9e9e9e; background-color: #d7d7af;"> </span>   wgrep
+<span style="color: #9e9e9e; background-color: #d7d7af;"> </span>   phi-search
+<span style="color: #9e9e9e; background-color: #d7d7af;"> </span>   docker
+<span style="color: #9e9e9e; background-color: #d7d7af;"> </span>   restclient
+<span style="color: #9e9e9e; background-color: #d7d7af;"> </span>   ob-restclient
+<span style="color: #9e9e9e; background-color: #d7d7af;"> </span>   htmlize
+<span style="color: #9e9e9e; background-color: #d7d7af;"> </span>   diredfl
+<span style="color: #9e9e9e; background-color: #d7d7af;"> </span>   python-pytest
+<span style="color: #9e9e9e; background-color: #d7d7af;"> </span>   dired-k
+<span style="color: #9e9e9e; background-color: #d7d7af;"> </span>   nix-mode
+<span style="color: #9e9e9e; background-color: #d7d7af;"> </span>   anaconda-mode
+<span style="color: #9e9e9e; background-color: #d7d7af;"> </span> ]) ++ (<span style="color: #00af00;">with</span> epkgs.elpaPackages; [
+<span style="color: #9e9e9e; background-color: #d7d7af;"> </span>   csv-mode
+<span style="color: #9e9e9e; background-color: #d7d7af;"> </span>   org
+<span style="color: #9e9e9e; background-color: #d7d7af;"> </span> ]) ++ [ (self.runCommand <span style="color: #ff1f8b;">"default.el"</span> {} <span style="color: #ff1f8b;">''</span>
+<span style="color: #ff1f8b;">mkdir -p $out/share/emacs/site-lisp</span>
+<span style="color: #ff1f8b;">cp </span><span style="color: #b218b2;">${</span>self.emacs_config<span style="color: #b218b2;">}</span><span style="color: #ff1f8b;"> $out/share/emacs/site-lisp/default.el</span>
+<span style="color: #ff1f8b;">''</span>) ]);
 }
 </pre>
 </div>
@@ -344,9 +333,9 @@ Installing (or reinstalling) the overlay can be done by
 </div>
 </div>
 
-<div id="outline-container-org031da1a" class="outline-2">
-<h2 id="org031da1a"><span class="section-number-2">4</span> Conclusion</h2>
-<div class="outline-text-2" id="text-4">
+<div id="outline-container-orgf7099fe" class="outline-2">
+<h2 id="orgf7099fe"><span class="section-number-2">3</span> Conclusion</h2>
+<div class="outline-text-2" id="text-3">
 <p>
 In future I might look into <a href="https://github.com/nix-community/emacs-overlay">nix-community/emacs-overlay</a> to get more recent Melpa
 packages as this approach is pinned to the versions defined in the official
@@ -357,9 +346,8 @@ and installing the same environment to another computer has been a breeze.
 </div>
 </div>
 <div id="postamble" class="status">
-<p class="author">Author: T. Gustafsson. Theme: Copyright (c) 2019 <a href="https://github.com/gongzhitaao/orgcss">gongzhitaao</a>.</p>
-<p class="date">Created: 2019-12-25 Wed 23:10</p>
-<p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
+<p class="author">Author: T. Gustafsson</p>
+<p class="date">Created: 2020-02-06 Thu 00:13</p>
 </div>
 </body>
 </html>

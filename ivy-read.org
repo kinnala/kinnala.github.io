@@ -1,6 +1,6 @@
 #+TITLE: Creating simple ivy-read macros
-#+AUTHOR: T. Gustafsson. Theme: Copyright (c) 2019 [[https://github.com/gongzhitaao/orgcss][gongzhitaao]].
-#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="https://kinnala.github.io/org.css" />
+#+AUTHOR: T. Gustafsson
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="org2.css" />
 
 * Introduction
 

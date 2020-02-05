@@ -3,12 +3,12 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2019-10-07 Mon 00:02 -->
+<!-- 2020-02-05 Wed 23:49 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Creating simple ivy-read macros</title>
 <meta name="generator" content="Org mode" />
-<meta name="author" content="T. Gustafsson. Theme: Copyright (c) 2019 [[https://github.com/gongzhitaao/orgcss][gongzhitaao]]gongzhitaao." />
+<meta name="author" content="T. Gustafsson" />
 <style type="text/css">
  <!--/*--><![CDATA[/*><!--*/
   .title  { text-align: center;
@@ -193,7 +193,7 @@
   .org-svg { width: 90%; }
   /*]]>*/-->
 </style>
-<link rel="stylesheet" type="text/css" href="https://kinnala.github.io/org.css" />
+<link rel="stylesheet" type="text/css" href="org2.css" />
 <script type="text/javascript">
 /*
 @licstart  The following is the entire license notice for the
@@ -248,17 +248,17 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org792b925">1. Introduction</a></li>
-<li><a href="#org9bffb01">2. Basics</a></li>
-<li><a href="#orga7cc7a4">3. Programmatic generation of candidates</a></li>
-<li><a href="#org0963a08">4. What to do with the result?</a></li>
-<li><a href="#orgbb64273">5. "Real world" example</a></li>
+<li><a href="#org6b9fdee">1. Introduction</a></li>
+<li><a href="#org7d267bd">2. Basics</a></li>
+<li><a href="#org2c170fa">3. Programmatic generation of candidates</a></li>
+<li><a href="#org0618871">4. What to do with the result?</a></li>
+<li><a href="#orge75377f">5. "Real world" example</a></li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org792b925" class="outline-2">
-<h2 id="org792b925"><span class="section-number-2">1</span> Introduction</h2>
+<div id="outline-container-org6b9fdee" class="outline-2">
+<h2 id="org6b9fdee"><span class="section-number-2">1</span> Introduction</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 For Emacs there exists a third-party package for interactive selection of
@@ -268,15 +268,15 @@ fuzzy matching algorithms.
 </div>
 </div>
 
-<div id="outline-container-org9bffb01" class="outline-2">
-<h2 id="org9bffb01"><span class="section-number-2">2</span> Basics</h2>
+<div id="outline-container-org7d267bd" class="outline-2">
+<h2 id="org7d267bd"><span class="section-number-2">2</span> Basics</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 The command <code>ivy-read</code> takes a minimum of two arguments:
 </p>
 
 <div class="org-src-container">
-<pre class="src src-emacs-lisp"><span style="color: #707183;">(</span>ivy-read <span style="color: #008000;">"prompt: "</span> '<span style="color: #7388D6;">(</span><span style="color: #008000;">"foo"</span> <span style="color: #008000;">"bar"</span> <span style="color: #008000;">"baz"</span><span style="color: #7388D6;">)</span><span style="color: #707183;">)</span>
+<pre class="src src-emacs-lisp">(ivy-read <span style="color: #ff1f8b;">"prompt: "</span> '(<span style="color: #ff1f8b;">"foo"</span> <span style="color: #ff1f8b;">"bar"</span> <span style="color: #ff1f8b;">"baz"</span>))
 </pre>
 </div>
 
@@ -292,8 +292,8 @@ the point at the final closing parenthesis.
 </div>
 </div>
 
-<div id="outline-container-orga7cc7a4" class="outline-2">
-<h2 id="orga7cc7a4"><span class="section-number-2">3</span> Programmatic generation of candidates</h2>
+<div id="outline-container-org2c170fa" class="outline-2">
+<h2 id="org2c170fa"><span class="section-number-2">3</span> Programmatic generation of candidates</h2>
 <div class="outline-text-2" id="text-3">
 <p>
 Many interesting commands, such as <code>ivy-switch-buffer</code> and <code>counsel-M-x</code>,
@@ -303,17 +303,17 @@ can use any Emacs Lisp features to create a list of strings and pass it to
 </p>
 
 <div class="org-src-container">
-<pre class="src src-emacs-lisp"><span style="color: #8D8D84;">; </span><span style="color: #8D8D84; font-style: italic;">Select a filename from the current directory</span>
-<span style="color: #707183;">(</span>ivy-read <span style="color: #008000;">"pick file: "</span>
-          <span style="color: #7388D6;">(</span>split-string
-           <span style="color: #909183;">(</span>shell-command-to-string <span style="color: #008000;">"ls"</span><span style="color: #909183;">)</span> <span style="color: #008000;">"\n"</span><span style="color: #7388D6;">)</span><span style="color: #707183;">)</span>
+<pre class="src src-emacs-lisp"><span style="color: #b2b2b2; font-style: italic;">; </span><span style="color: #b2b2b2; font-style: italic;">Select a filename from the current directory</span>
+(ivy-read <span style="color: #ff1f8b;">"pick file: "</span>
+<span style="color: #9e9e9e; background-color: #d7d7af;"> </span>   <span style="color: #9e9e9e; background-color: #d7d7af;"> </span>   <span style="color: #9e9e9e; background-color: #d7d7af;"> </span> (split-string
+<span style="color: #9e9e9e; background-color: #d7d7af;"> </span>   <span style="color: #9e9e9e; background-color: #d7d7af;"> </span>   <span style="color: #9e9e9e; background-color: #d7d7af;"> </span>  (shell-command-to-string <span style="color: #ff1f8b;">"ls"</span>) <span style="color: #ff1f8b;">"\n"</span>))
 </pre>
 </div>
 </div>
 </div>
 
-<div id="outline-container-org0963a08" class="outline-2">
-<h2 id="org0963a08"><span class="section-number-2">4</span> What to do with the result?</h2>
+<div id="outline-container-org0618871" class="outline-2">
+<h2 id="org0618871"><span class="section-number-2">4</span> What to do with the result?</h2>
 <div class="outline-text-2" id="text-4">
 <p>
 By default, the selected candidate is returned by <code>ivy-read</code>.  You can optionally
@@ -321,12 +321,12 @@ define an <i>action</i> which is called after the selection:
 </p>
 
 <div class="org-src-container">
-<pre class="src src-emacs-lisp"><span style="color: #8D8D84;">; </span><span style="color: #8D8D84; font-style: italic;">Browse files and open selected file for editing</span>
-<span style="color: #707183;">(</span>ivy-read <span style="color: #008000;">"pick file: "</span>
-          <span style="color: #7388D6;">(</span>split-string
-           <span style="color: #909183;">(</span>shell-command-to-string <span style="color: #008000;">"ls"</span><span style="color: #909183;">)</span> <span style="color: #008000;">"\n"</span><span style="color: #7388D6;">)</span>
-          <span style="color: #006FE0;">:action</span> <span style="color: #7388D6;">(</span><span style="color: #0000FF;">lambda</span> <span style="color: #909183;">(</span>filename<span style="color: #909183;">)</span>
-                    <span style="color: #909183;">(</span>find-file filename<span style="color: #909183;">)</span><span style="color: #7388D6;">)</span><span style="color: #707183;">)</span>
+<pre class="src src-emacs-lisp"><span style="color: #b2b2b2; font-style: italic;">; </span><span style="color: #b2b2b2; font-style: italic;">Browse files and open selected file for editing</span>
+(ivy-read <span style="color: #ff1f8b;">"pick file: "</span>
+<span style="color: #9e9e9e; background-color: #d7d7af;"> </span>   <span style="color: #9e9e9e; background-color: #d7d7af;"> </span>   <span style="color: #9e9e9e; background-color: #d7d7af;"> </span> (split-string
+<span style="color: #9e9e9e; background-color: #d7d7af;"> </span>   <span style="color: #9e9e9e; background-color: #d7d7af;"> </span>   <span style="color: #9e9e9e; background-color: #d7d7af;"> </span>  (shell-command-to-string <span style="color: #ff1f8b;">"ls"</span>) <span style="color: #ff1f8b;">"\n"</span>)
+<span style="color: #9e9e9e; background-color: #d7d7af;"> </span>   <span style="color: #9e9e9e; background-color: #d7d7af;"> </span>   <span style="color: #9e9e9e; background-color: #d7d7af;"> </span> <span style="color: #b218b2;">:action</span> (<span style="color: #00af00;">lambda</span> (filename)
+<span style="color: #9e9e9e; background-color: #d7d7af;"> </span>   <span style="color: #9e9e9e; background-color: #d7d7af;"> </span>   <span style="color: #9e9e9e; background-color: #d7d7af;"> </span>   <span style="color: #9e9e9e; background-color: #d7d7af;"> </span>   <span style="color: #9e9e9e; background-color: #d7d7af;"> </span>   (find-file filename)))
 </pre>
 </div>
 
@@ -336,8 +336,8 @@ Selecting a candidate will now open the respective file.
 </div>
 </div>
 
-<div id="outline-container-orgbb64273" class="outline-2">
-<h2 id="orgbb64273"><span class="section-number-2">5</span> "Real world" example</h2>
+<div id="outline-container-orge75377f" class="outline-2">
+<h2 id="orge75377f"><span class="section-number-2">5</span> "Real world" example</h2>
 <div class="outline-text-2" id="text-5">
 <p>
 In my current job, I need to frequently access a huge csv-file which has a
@@ -346,16 +346,16 @@ column. It could be something like this:
 </p>
 
 <div class="org-src-container">
-<pre class="src src-emacs-lisp"><span style="color: #707183;">(</span><span style="color: #0000FF;">setq</span> my-csv-file
-      <span style="color: #7388D6;">(</span>make-temp-file <span style="color: #008000;">"csv"</span> nil nil
-                      <span style="color: #909183;">(</span>concat
-                       <span style="color: #008000;">"NAME;ID\n"</span>
-                       <span style="color: #008000;">"Brand 1;0\n"</span>
-                       <span style="color: #008000;">"Brand 2;12\n"</span>
-                       <span style="color: #008000;">"Brand 3;25"</span><span style="color: #909183;">)</span><span style="color: #7388D6;">)</span><span style="color: #707183;">)</span>
+<pre class="src src-emacs-lisp">(<span style="color: #00af00;">setq</span> my-csv-file
+<span style="color: #9e9e9e; background-color: #d7d7af;"> </span>   <span style="color: #9e9e9e; background-color: #d7d7af;"> </span> (make-temp-file <span style="color: #ff1f8b;">"csv"</span> nil nil
+<span style="color: #9e9e9e; background-color: #d7d7af;"> </span>   <span style="color: #9e9e9e; background-color: #d7d7af;"> </span>   <span style="color: #9e9e9e; background-color: #d7d7af;"> </span>   <span style="color: #9e9e9e; background-color: #d7d7af;"> </span>   <span style="color: #9e9e9e; background-color: #d7d7af;"> </span>   <span style="color: #9e9e9e; background-color: #d7d7af;"> </span> (concat
+<span style="color: #9e9e9e; background-color: #d7d7af;"> </span>   <span style="color: #9e9e9e; background-color: #d7d7af;"> </span>   <span style="color: #9e9e9e; background-color: #d7d7af;"> </span>   <span style="color: #9e9e9e; background-color: #d7d7af;"> </span>   <span style="color: #9e9e9e; background-color: #d7d7af;"> </span>   <span style="color: #9e9e9e; background-color: #d7d7af;"> </span>  <span style="color: #ff1f8b;">"NAME;ID\n"</span>
+<span style="color: #9e9e9e; background-color: #d7d7af;"> </span>   <span style="color: #9e9e9e; background-color: #d7d7af;"> </span>   <span style="color: #9e9e9e; background-color: #d7d7af;"> </span>   <span style="color: #9e9e9e; background-color: #d7d7af;"> </span>   <span style="color: #9e9e9e; background-color: #d7d7af;"> </span>   <span style="color: #9e9e9e; background-color: #d7d7af;"> </span>  <span style="color: #ff1f8b;">"Brand 1;0\n"</span>
+<span style="color: #9e9e9e; background-color: #d7d7af;"> </span>   <span style="color: #9e9e9e; background-color: #d7d7af;"> </span>   <span style="color: #9e9e9e; background-color: #d7d7af;"> </span>   <span style="color: #9e9e9e; background-color: #d7d7af;"> </span>   <span style="color: #9e9e9e; background-color: #d7d7af;"> </span>   <span style="color: #9e9e9e; background-color: #d7d7af;"> </span>  <span style="color: #ff1f8b;">"Brand 2;12\n"</span>
+<span style="color: #9e9e9e; background-color: #d7d7af;"> </span>   <span style="color: #9e9e9e; background-color: #d7d7af;"> </span>   <span style="color: #9e9e9e; background-color: #d7d7af;"> </span>   <span style="color: #9e9e9e; background-color: #d7d7af;"> </span>   <span style="color: #9e9e9e; background-color: #d7d7af;"> </span>   <span style="color: #9e9e9e; background-color: #d7d7af;"> </span>  <span style="color: #ff1f8b;">"Brand 3;25"</span>)))
 
-<span style="color: #707183;">(</span>shell-command-to-string
- <span style="color: #7388D6;">(</span>concat <span style="color: #008000;">"cat "</span> my-csv-file<span style="color: #7388D6;">)</span><span style="color: #707183;">)</span>
+(shell-command-to-string
+<span style="color: #9e9e9e; background-color: #d7d7af;"> </span>(concat <span style="color: #ff1f8b;">"cat "</span> my-csv-file))
 </pre>
 </div>
 
@@ -379,19 +379,19 @@ the correct file:
 </p>
 
 <div class="org-src-container">
-<pre class="src src-emacs-lisp"><span style="color: #707183;">(</span><span style="color: #0000FF;">setq</span> another-files
-      `<span style="color: #7388D6;">(</span><span style="color: #909183;">(</span><span style="color: #008000;">"0"</span> ,<span style="color: #709870;">(</span>make-temp-file
-               <span style="color: #008000;">"another"</span> nil nil
-               <span style="color: #008000;">"Lots of Brand 1 stuff ..."</span><span style="color: #709870;">)</span><span style="color: #909183;">)</span>
-        <span style="color: #909183;">(</span><span style="color: #008000;">"12"</span> ,<span style="color: #709870;">(</span>make-temp-file
-                <span style="color: #008000;">"another"</span> nil nil
-                <span style="color: #008000;">"Lots of Brand 2 stuff ..."</span><span style="color: #709870;">)</span><span style="color: #909183;">)</span>
-        <span style="color: #909183;">(</span><span style="color: #008000;">"25"</span> ,<span style="color: #709870;">(</span>make-temp-file
-                <span style="color: #008000;">"another"</span> nil nil
-                <span style="color: #008000;">"Lots of Brand 3 stuff ..."</span><span style="color: #709870;">)</span><span style="color: #909183;">)</span><span style="color: #7388D6;">)</span><span style="color: #707183;">)</span>
+<pre class="src src-emacs-lisp">(<span style="color: #00af00;">setq</span> another-files
+<span style="color: #9e9e9e; background-color: #d7d7af;"> </span>   <span style="color: #9e9e9e; background-color: #d7d7af;"> </span> `((<span style="color: #ff1f8b;">"0"</span> ,(make-temp-file
+<span style="color: #9e9e9e; background-color: #d7d7af;"> </span>   <span style="color: #9e9e9e; background-color: #d7d7af;"> </span>   <span style="color: #9e9e9e; background-color: #d7d7af;"> </span>   <span style="color: #9e9e9e; background-color: #d7d7af;"> </span>  <span style="color: #ff1f8b;">"another"</span> nil nil
+<span style="color: #9e9e9e; background-color: #d7d7af;"> </span>   <span style="color: #9e9e9e; background-color: #d7d7af;"> </span>   <span style="color: #9e9e9e; background-color: #d7d7af;"> </span>   <span style="color: #9e9e9e; background-color: #d7d7af;"> </span>  <span style="color: #ff1f8b;">"Lots of Brand 1 stuff ..."</span>))
+<span style="color: #9e9e9e; background-color: #d7d7af;"> </span>   <span style="color: #9e9e9e; background-color: #d7d7af;"> </span>   (<span style="color: #ff1f8b;">"12"</span> ,(make-temp-file
+<span style="color: #9e9e9e; background-color: #d7d7af;"> </span>   <span style="color: #9e9e9e; background-color: #d7d7af;"> </span>   <span style="color: #9e9e9e; background-color: #d7d7af;"> </span>   <span style="color: #9e9e9e; background-color: #d7d7af;"> </span>   <span style="color: #ff1f8b;">"another"</span> nil nil
+<span style="color: #9e9e9e; background-color: #d7d7af;"> </span>   <span style="color: #9e9e9e; background-color: #d7d7af;"> </span>   <span style="color: #9e9e9e; background-color: #d7d7af;"> </span>   <span style="color: #9e9e9e; background-color: #d7d7af;"> </span>   <span style="color: #ff1f8b;">"Lots of Brand 2 stuff ..."</span>))
+<span style="color: #9e9e9e; background-color: #d7d7af;"> </span>   <span style="color: #9e9e9e; background-color: #d7d7af;"> </span>   (<span style="color: #ff1f8b;">"25"</span> ,(make-temp-file
+<span style="color: #9e9e9e; background-color: #d7d7af;"> </span>   <span style="color: #9e9e9e; background-color: #d7d7af;"> </span>   <span style="color: #9e9e9e; background-color: #d7d7af;"> </span>   <span style="color: #9e9e9e; background-color: #d7d7af;"> </span>   <span style="color: #ff1f8b;">"another"</span> nil nil
+<span style="color: #9e9e9e; background-color: #d7d7af;"> </span>   <span style="color: #9e9e9e; background-color: #d7d7af;"> </span>   <span style="color: #9e9e9e; background-color: #d7d7af;"> </span>   <span style="color: #9e9e9e; background-color: #d7d7af;"> </span>   <span style="color: #ff1f8b;">"Lots of Brand 3 stuff ..."</span>))))
 
-<span style="color: #707183;">(</span><span style="color: #0000FF;">defun</span> <span style="color: #006699;">return-filename</span> <span style="color: #7388D6;">(</span>id<span style="color: #7388D6;">)</span>
-  <span style="color: #7388D6;">(</span>car <span style="color: #909183;">(</span>cdr <span style="color: #709870;">(</span>assoc id another-files<span style="color: #709870;">)</span><span style="color: #909183;">)</span><span style="color: #7388D6;">)</span><span style="color: #707183;">)</span>
+(<span style="color: #00af00;">defun</span> <span style="color: #ef2929;">return-filename</span> (id)
+<span style="color: #9e9e9e; background-color: #d7d7af;"> </span> (car (cdr (assoc id another-files))))
 </pre>
 </div>
 
@@ -401,15 +401,15 @@ column from a csv-file:
 </p>
 
 <div class="org-src-container">
-<pre class="src src-emacs-lisp"><span style="color: #707183;">(</span><span style="color: #0000FF;">require</span> '<span style="color: #D0372D;">dash</span><span style="color: #707183;">)</span>
-<span style="color: #707183;">(</span><span style="color: #0000FF;">require</span> '<span style="color: #D0372D;">s</span><span style="color: #707183;">)</span>
-<span style="color: #707183;">(</span><span style="color: #0000FF;">require</span> '<span style="color: #D0372D;">f</span><span style="color: #707183;">)</span>
+<pre class="src src-emacs-lisp">(<span style="color: #00af00;">require</span> '<span style="color: #1f5bff;">dash</span>)
+(<span style="color: #00af00;">require</span> '<span style="color: #1f5bff;">s</span>)
+(<span style="color: #00af00;">require</span> '<span style="color: #1f5bff;">f</span>)
 
-<span style="color: #707183;">(</span><span style="color: #0000FF;">defun</span> <span style="color: #006699;">csv-nth-column</span> <span style="color: #7388D6;">(</span>file sep n<span style="color: #7388D6;">)</span>
-  <span style="color: #036A07;">"Get n'th column from csv file"</span>
-  <span style="color: #7388D6;">(</span><span style="color: #0000FF;">let</span> <span style="color: #909183;">(</span><span style="color: #709870;">(</span>lines <span style="color: #907373;">(</span>cdr <span style="color: #6276BA;">(</span>s-split <span style="color: #008000;">"\n"</span> <span style="color: #858580;">(</span>f-read file<span style="color: #858580;">)</span><span style="color: #6276BA;">)</span><span style="color: #907373;">)</span><span style="color: #709870;">)</span><span style="color: #909183;">)</span>
-    <span style="color: #909183;">(</span>-map <span style="color: #709870;">(</span><span style="color: #0000FF;">lambda</span> <span style="color: #907373;">(</span>line<span style="color: #907373;">)</span> <span style="color: #907373;">(</span>nth n <span style="color: #6276BA;">(</span>s-split sep line<span style="color: #6276BA;">)</span><span style="color: #907373;">)</span><span style="color: #709870;">)</span>
-          lines<span style="color: #909183;">)</span><span style="color: #7388D6;">)</span><span style="color: #707183;">)</span>
+(<span style="color: #00af00;">defun</span> <span style="color: #ef2929;">csv-nth-column</span> (file sep n)
+<span style="color: #9e9e9e; background-color: #d7d7af;"> </span> <span style="color: #cc0000;">"Get n'th column from csv file"</span>
+<span style="color: #9e9e9e; background-color: #d7d7af;"> </span> (<span style="color: #00af00;">let</span> ((lines (cdr (s-split <span style="color: #ff1f8b;">"\n"</span> (f-read file)))))
+<span style="color: #9e9e9e; background-color: #d7d7af;"> </span>   (-map (<span style="color: #00af00;">lambda</span> (line) (nth n (s-split sep line)))
+<span style="color: #9e9e9e; background-color: #d7d7af;"> </span>   <span style="color: #9e9e9e; background-color: #d7d7af;"> </span>   <span style="color: #9e9e9e; background-color: #d7d7af;"> </span> lines)))
 </pre>
 </div>
 
@@ -418,14 +418,14 @@ Then my <code>ivy-read</code> call would look like this:
 </p>
 
 <div class="org-src-container">
-<pre class="src src-emacs-lisp"><span style="color: #707183;">(</span>ivy-read <span style="color: #008000;">"pick a brand to study: "</span>
-          <span style="color: #7388D6;">(</span>-zip
-           <span style="color: #909183;">(</span>csv-nth-column my-csv-file <span style="color: #008000;">";"</span> 0<span style="color: #909183;">)</span>
-           <span style="color: #909183;">(</span>csv-nth-column my-csv-file <span style="color: #008000;">";"</span> 1<span style="color: #909183;">)</span><span style="color: #7388D6;">)</span>
-          <span style="color: #006FE0;">:action</span> <span style="color: #7388D6;">(</span><span style="color: #0000FF;">lambda</span> <span style="color: #909183;">(</span>x<span style="color: #909183;">)</span>
-                    <span style="color: #909183;">(</span><span style="color: #0000FF;">with-help-window</span> <span style="color: #008000;">"*brand info*"</span>
-                      <span style="color: #709870;">(</span><span style="color: #0000FF;">with-current-buffer</span> <span style="color: #008000;">"*brand info*"</span>
-                        <span style="color: #907373;">(</span>insert <span style="color: #6276BA;">(</span>f-read <span style="color: #858580;">(</span>return-filename <span style="color: #80A880;">(</span>cdr x<span style="color: #80A880;">)</span><span style="color: #858580;">)</span><span style="color: #6276BA;">)</span><span style="color: #907373;">)</span><span style="color: #709870;">)</span><span style="color: #909183;">)</span><span style="color: #7388D6;">)</span><span style="color: #707183;">)</span>
+<pre class="src src-emacs-lisp">(ivy-read <span style="color: #ff1f8b;">"pick a brand to study: "</span>
+<span style="color: #9e9e9e; background-color: #d7d7af;"> </span>   <span style="color: #9e9e9e; background-color: #d7d7af;"> </span>   <span style="color: #9e9e9e; background-color: #d7d7af;"> </span> (-zip
+<span style="color: #9e9e9e; background-color: #d7d7af;"> </span>   <span style="color: #9e9e9e; background-color: #d7d7af;"> </span>   <span style="color: #9e9e9e; background-color: #d7d7af;"> </span>  (csv-nth-column my-csv-file <span style="color: #ff1f8b;">";"</span> 0)
+<span style="color: #9e9e9e; background-color: #d7d7af;"> </span>   <span style="color: #9e9e9e; background-color: #d7d7af;"> </span>   <span style="color: #9e9e9e; background-color: #d7d7af;"> </span>  (csv-nth-column my-csv-file <span style="color: #ff1f8b;">";"</span> 1))
+<span style="color: #9e9e9e; background-color: #d7d7af;"> </span>   <span style="color: #9e9e9e; background-color: #d7d7af;"> </span>   <span style="color: #9e9e9e; background-color: #d7d7af;"> </span> <span style="color: #b218b2;">:action</span> (<span style="color: #00af00;">lambda</span> (x)
+<span style="color: #9e9e9e; background-color: #d7d7af;"> </span>   <span style="color: #9e9e9e; background-color: #d7d7af;"> </span>   <span style="color: #9e9e9e; background-color: #d7d7af;"> </span>   <span style="color: #9e9e9e; background-color: #d7d7af;"> </span>   <span style="color: #9e9e9e; background-color: #d7d7af;"> </span>   (<span style="color: #00af00;">with-help-window</span> <span style="color: #ff1f8b;">"*brand info*"</span>
+<span style="color: #9e9e9e; background-color: #d7d7af;"> </span>   <span style="color: #9e9e9e; background-color: #d7d7af;"> </span>   <span style="color: #9e9e9e; background-color: #d7d7af;"> </span>   <span style="color: #9e9e9e; background-color: #d7d7af;"> </span>   <span style="color: #9e9e9e; background-color: #d7d7af;"> </span>   <span style="color: #9e9e9e; background-color: #d7d7af;"> </span> (<span style="color: #00af00;">with-current-buffer</span> <span style="color: #ff1f8b;">"*brand info*"</span>
+<span style="color: #9e9e9e; background-color: #d7d7af;"> </span>   <span style="color: #9e9e9e; background-color: #d7d7af;"> </span>   <span style="color: #9e9e9e; background-color: #d7d7af;"> </span>   <span style="color: #9e9e9e; background-color: #d7d7af;"> </span>   <span style="color: #9e9e9e; background-color: #d7d7af;"> </span>   <span style="color: #9e9e9e; background-color: #d7d7af;"> </span>   (insert (f-read (return-filename (cdr x))))))))
 </pre>
 </div>
 
@@ -437,9 +437,8 @@ Choosing <code>Branch 1</code> opens another buffer with the text <code>Lots of 
 </div>
 </div>
 <div id="postamble" class="status">
-<p class="author">Author: T. Gustafsson. Theme: Copyright (c) 2019 <a href="https://github.com/gongzhitaao/orgcss">gongzhitaao</a>.</p>
-<p class="date">Created: 2019-10-07 Mon 00:02</p>
-<p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
+<p class="author">Author: T. Gustafsson</p>
+<p class="date">Created: 2020-02-05 Wed 23:49</p>
 </div>
 </body>
 </html>
