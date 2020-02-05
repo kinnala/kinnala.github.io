@@ -2,7 +2,7 @@
 #+AUTHOR: T. Gustafsson
 #+HTML_HEAD: <link rel="stylesheet" type="text/css" href="org2.css" />
 
-- <2020-02-05 Wed> Update: I've since moved over to using the [[file:config.org][cutting edge Emacs overlay]].
+- <2020-02-05 Wed> Update: I've since moved over to using the [[https://github.com/kinnala/nixpkgs][cutting edge Emacs overlay]].
 
 * Introduction
 

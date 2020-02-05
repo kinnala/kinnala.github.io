@@ -28,7 +28,6 @@ You can find examples from its [[https://kinnala.github.io/scikit-fem-docs/learn
 I collect notes and write tutorials on miscellaneous subjects.  Here are some of
 the public ones that touch subjects such as Emacs, books, and programming.
 
- - [[file:config.org]]
  - [[file:straight.org]]
  - [[file:ivy-read.org]]
  - [[file:nix.org]]

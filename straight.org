@@ -2,6 +2,8 @@
 #+AUTHOR: T. Gustafsson
 #+HTML_HEAD: <link rel="stylesheet" type="text/css" href="org2.css" />
 
+- <2020-02-05 Wed> Update: I've since moved over to using [[https://github.com/kinnala/nixpkgs][Nix]].
+
 * Introduction
 
 There exists a functional package manager for Emacs called straight.el.  It
@@ -150,4 +152,4 @@ package's directory, run =make= and create a symlink
 =~/.emacs.d/straight/repos/emacs-zmq=.  Finally, I'd remove =:no-build= and
 restart Emacs.
 
-- <2020-02-05 Wed> Update: I've since moved over to using [[file:config.org][Nix]].
+

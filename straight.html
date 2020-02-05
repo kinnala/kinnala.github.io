@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2020-02-05 Wed 23:59 -->
+<!-- 2020-02-06 Thu 00:19 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Getting started with straight.el</title>
@@ -248,20 +248,23 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org688ca90">1. Introduction</a></li>
-<li><a href="#orgba5ac49">2. Find a list of packages</a></li>
-<li><a href="#orgf79d7d6">3. Bootstrapping the config</a></li>
-<li><a href="#org0111e33">4. Installing packages</a></li>
-<li><a href="#org0a9048b">5. Installing <code>use-package</code></a></li>
-<li><a href="#org2e0b531">6. Installing <code>ivy</code></a></li>
-<li><a href="#orgc4eb0a8">7. Recipes</a></li>
-<li><a href="#org88d158a">8. A peak under the hood</a></li>
+<li><a href="#org578182f">1. Introduction</a></li>
+<li><a href="#org0f75450">2. Find a list of packages</a></li>
+<li><a href="#org6eaac70">3. Bootstrapping the config</a></li>
+<li><a href="#org86ed13d">4. Installing packages</a></li>
+<li><a href="#orgcdf8760">5. Installing <code>use-package</code></a></li>
+<li><a href="#org9b144ab">6. Installing <code>ivy</code></a></li>
+<li><a href="#org7e2c276">7. Recipes</a></li>
+<li><a href="#org25ba921">8. A peak under the hood</a></li>
 </ul>
 </div>
 </div>
+<ul class="org-ul">
+<li><span class="timestamp-wrapper"><span class="timestamp">&lt;2020-02-05 Wed&gt; </span></span> Update: I've since moved over to using <a href="https://github.com/kinnala/nixpkgs">Nix</a>.</li>
+</ul>
 
-<div id="outline-container-org688ca90" class="outline-2">
-<h2 id="org688ca90"><span class="section-number-2">1</span> Introduction</h2>
+<div id="outline-container-org578182f" class="outline-2">
+<h2 id="org578182f"><span class="section-number-2">1</span> Introduction</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 There exists a functional package manager for Emacs called straight.el.  It
@@ -278,8 +281,8 @@ using Dropbox to sync my dotfiles, I have a single init file
 </div>
 </div>
 
-<div id="outline-container-orgba5ac49" class="outline-2">
-<h2 id="orgba5ac49"><span class="section-number-2">2</span> Find a list of packages</h2>
+<div id="outline-container-org0f75450" class="outline-2">
+<h2 id="org0f75450"><span class="section-number-2">2</span> Find a list of packages</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 We are going to create a new <code>.emacs</code> from scratch. First you need a list of
@@ -301,8 +304,8 @@ Suppose we want to have the following packages:
 </div>
 </div>
 
-<div id="outline-container-orgf79d7d6" class="outline-2">
-<h2 id="orgf79d7d6"><span class="section-number-2">3</span> Bootstrapping the config</h2>
+<div id="outline-container-org6eaac70" class="outline-2">
+<h2 id="org6eaac70"><span class="section-number-2">3</span> Bootstrapping the config</h2>
 <div class="outline-text-2" id="text-3">
 <p>
 The first lines of the config are magic.
@@ -333,8 +336,8 @@ run it - but only if straight.el is not already installed.
 </div>
 </div>
 
-<div id="outline-container-org0111e33" class="outline-2">
-<h2 id="org0111e33"><span class="section-number-2">4</span> Installing packages</h2>
+<div id="outline-container-org86ed13d" class="outline-2">
+<h2 id="org86ed13d"><span class="section-number-2">4</span> Installing packages</h2>
 <div class="outline-text-2" id="text-4">
 <p>
 After running Emacs, you can install packages via <code>M-x straight-use-package</code>.
@@ -363,8 +366,8 @@ accidentally activated.</b></b>
 </div>
 </div>
 
-<div id="outline-container-org0a9048b" class="outline-2">
-<h2 id="org0a9048b"><span class="section-number-2">5</span> Installing <code>use-package</code></h2>
+<div id="outline-container-orgcdf8760" class="outline-2">
+<h2 id="orgcdf8760"><span class="section-number-2">5</span> Installing <code>use-package</code></h2>
 <div class="outline-text-2" id="text-5">
 <p>
 The macro <code>use-package</code> is popular for keeping all package configuration in one
@@ -379,8 +382,8 @@ place. Adding the following lines to <code>.emacs</code> will install and enable
 </div>
 </div>
 
-<div id="outline-container-org2e0b531" class="outline-2">
-<h2 id="org2e0b531"><span class="section-number-2">6</span> Installing <code>ivy</code></h2>
+<div id="outline-container-org9b144ab" class="outline-2">
+<h2 id="org9b144ab"><span class="section-number-2">6</span> Installing <code>ivy</code></h2>
 <div class="outline-text-2" id="text-6">
 <p>
 Now we can write <code>use-package</code> macros to install and configure packages:
@@ -412,8 +415,8 @@ Now we can write <code>use-package</code> macros to install and configure packag
 </div>
 </div>
 
-<div id="outline-container-orgc4eb0a8" class="outline-2">
-<h2 id="orgc4eb0a8"><span class="section-number-2">7</span> Recipes</h2>
+<div id="outline-container-org7e2c276" class="outline-2">
+<h2 id="org7e2c276"><span class="section-number-2">7</span> Recipes</h2>
 <div class="outline-text-2" id="text-7">
 <p>
 You can easily define a new recipe if the package cannot be
@@ -437,8 +440,8 @@ This installs <code>anzu</code> from <code>github.com/syohex/emacs-anzu</code>.
 </div>
 </div>
 
-<div id="outline-container-org88d158a" class="outline-2">
-<h2 id="org88d158a"><span class="section-number-2">8</span> A peak under the hood</h2>
+<div id="outline-container-org25ba921" class="outline-2">
+<h2 id="org25ba921"><span class="section-number-2">8</span> A peak under the hood</h2>
 <div class="outline-text-2" id="text-8">
 <p>
 In <code>~/.emacs.d/straight</code> you find two directories: <code>repos</code> and <code>build</code>.  The
@@ -471,16 +474,12 @@ package's directory, run <code>make</code> and create a symlink
 <code>~/.emacs.d/straight/repos/emacs-zmq</code>.  Finally, I'd remove <code>:no-build</code> and
 restart Emacs.
 </p>
-
-<ul class="org-ul">
-<li><span class="timestamp-wrapper"><span class="timestamp">&lt;2020-02-05 Wed&gt; </span></span> Update: I've since moved over to using <a href="config.html">Nix</a>.</li>
-</ul>
 </div>
 </div>
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: T. Gustafsson</p>
-<p class="date">Created: 2020-02-05 Wed 23:59</p>
+<p class="date">Created: 2020-02-06 Thu 00:19</p>
 </div>
 </body>
 </html>
