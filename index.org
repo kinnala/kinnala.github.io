@@ -20,15 +20,14 @@ which was funded by [[https://skr.fi/][Finnish Cultural Foundation]].  You can f
 
 I enjoy all things computational despite having written most of my scientific
 papers on finite element methods for variational inequalities.  Here
-are some exceptions to the rule:
+are some exceptions, not related to inequality-constraints:
 
 - [[https://arxiv.org/abs/1707.08396][A posteriori estimates for conforming Kirchhoff plate elements]].  We analysed
-  some old school $C^1$-conforming finite element methods in the case of mesh
-  adaptivity and more general boundary conditions than was previously available
-  in the literature.
+  some old school finite element methods in the case of mesh adaptivity and more
+  general boundary conditions than was previously available in the literature.
 - [[https://www.sciencedirect.com/science/article/pii/S0307904X15001900][Nonlinear Reynolds equation for hydrodynamic lubrication]].  We demonstrated how
   a classical dimension reduction of the Navier-Stokes equations must be
-  corrected in the high pressure regime.
+  corrected in high pressure regime.
 - [[https://journal.austms.org.au/ojs/index.php/ANZIAMJ/article/download/14058/2175][Three ways to compute multiport inertance]].  We discussed an interesting
   application of the Poisson equation in the context of microhydraulic systems.
 
