@@ -9,8 +9,8 @@ employed by [[http://math.aalto.fi/en/][Aalto University, Department of Mathemat
 a postdoctoral researcher, working in the project
 [[https://akareport.aka.fi/ibi_apps/WFServlet?IBIF_ex=x_HakKuvaus2&CLICKED_ON=&HAKNRO1=324611&UILANG=fi&TULOSTE=HTML][Effektiva finita element metoder inom kontinuummekanik]], 2019--22.
 Previously, I have worked in the forest, nuclear and marine industries,
-and enjoy continuously learning how mathematics can be applied to bring
-wealth and welfare.
+and enjoy continuously learning how mathematics can be applied to improve
+society.
 
 * Research
 
