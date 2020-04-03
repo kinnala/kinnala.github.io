@@ -35,12 +35,3 @@ During my studies, I wrote an open source Python package for finite element
 assembly called [[https://github.com/kinnala/scikit-fem][scikit-fem]]. I still maintain and use it actively, and think its
 especially useful for learning about finite element methods.
 You can find examples from its [[https://kinnala.github.io/scikit-fem-docs/learning.html][documentation]].
-
-* Notes
-
-I collect notes and write tutorials on miscellaneous subjects.  Here are some of
-the public ones that touch subjects such as Emacs, books, and programming.
-
- - [[file:straight.org]]
- - [[file:ivy-read.org]]
- - file:books.org
