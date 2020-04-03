@@ -75,6 +75,7 @@
 |                       |                          | Fool's Fate                 | Finished | Yes  |     |
 |-----------------------+--------------------------+-----------------------------+----------+------+-----|
 | Nicholas Eames        | The Band                 | Kings of the Wyld           | Finished | Yes  |     |
+|                       |                          | Bloody Rose                 | Released |      |     |
 |-----------------------+--------------------------+-----------------------------+----------+------+-----|
 | Dan Simmons           | Hyperion Cantos          | Hyperion                    | Finished | Yes  |     |
 |                       |                          | The Fall of Hyperion        | Finished | Yes  |     |
