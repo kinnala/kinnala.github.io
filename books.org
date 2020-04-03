@@ -1,4 +1,4 @@
-#+TITLE: List of books read since 2014
+#+TITLE: List of books
 #+AUTHOR: T. Gustafsson
 #+HTML_HEAD: <link rel="stylesheet" type="text/css" href="org2.css" />
 
@@ -15,6 +15,7 @@
 |                       |                          | Words of Radiance           | Finished |      |     |
 |                       |                          | Oathbringer                 | Finished | Yes  |     |
 |                       |                          | Rhythm of War               | Upcoming |      |     |
+|-----------------------+--------------------------+-----------------------------+----------+------+-----|
 | Robert Jordan         | The Wheel of Time        | The Eye of the World        | Finished |      |     |
 |                       |                          | The Great Hunt              | Finished |      |     |
 |                       |                          | The Dragon Reborn           | Finished |      |     |
@@ -30,40 +31,52 @@
 |                       |                          | Towers of Midnight          | Finished |      |     |
 |                       |                          | A Memory of Light           | Finished |      |     |
 |                       |                          | New Spring                  | Acquired |      |     |
+|-----------------------+--------------------------+-----------------------------+----------+------+-----|
 | Scott Lynch           | Gentleman Bastard        | The Lies of Locke Lamora    | Finished | Yes  | Yes |
 |                       |                          | Red Seas Under Red Skies    | Finished | Yes  |     |
 |                       |                          | The Republic of Thieves     | Finished | Yes  |     |
 |                       |                          | The Thorn of Emberlain      | Upcoming |      |     |
+|-----------------------+--------------------------+-----------------------------+----------+------+-----|
 | Leigh Bardugo         | Six of Crows duology     | Six of Crows                | Finished | Yes  |     |
 |                       |                          | Crooked Kingdom             | Finished | Yes  |     |
+|-----------------------+--------------------------+-----------------------------+----------+------+-----|
 | Brent Weeks           | Lightbringer             | The Black Prism             | Finished | Yes  |     |
 |                       |                          | The Blinding Knife          | Finished | Yes  |     |
 |                       |                          | The Broken Eye              | Finished | Yes  |     |
 |                       |                          | The Blood Mirror            | Finished | Yes  |     |
 |                       |                          | The Burning White           | Ongoing  | Yes  |     |
 |                       | The Night Angel          | The Way of Shadows          | Finished | Yes  |     |
+|-----------------------+--------------------------+-----------------------------+----------+------+-----|
 | Brian McClellan       | The Powder Mage          | Promise of Blood            | Finished | Yes  |     |
 |                       |                          | The Crimson Campaign        | Finished | Yes  |     |
 |                       |                          | The Autumn Republic         | Finished | Yes  |     |
 |                       | Gods of Blood and Powder | Sins of Empire              | Finished | Yes  |     |
 |                       |                          | Wrath of Empire             | Acquired | Yes  |     |
+|-----------------------+--------------------------+-----------------------------+----------+------+-----|
 | Robert Jackson Bennet | Founders                 | Foundryside                 | Acquired | Yes  |     |
+|-----------------------+--------------------------+-----------------------------+----------+------+-----|
 | James Islington       | The Licanius Trilogy     | The Shadow of What Was Lost | Finished | Yes  |     |
 |                       |                          | An Echo of Things to Come   | Acquired | Yes  |     |
 |                       |                          | The Light of All That Falls | Released |      |     |
+|-----------------------+--------------------------+-----------------------------+----------+------+-----|
 | Patrick Rothfuss      | The Kingkiller Chronicle | The Name of the Wind        | Finished | Both | Yes |
 |                       |                          | The Wise Man's Fear         | Finished | Both |     |
 |                       |                          | The Doors of Stone          | Upcoming |      |     |
+|-----------------------+--------------------------+-----------------------------+----------+------+-----|
 | Joe Abercrombie       | The First Law            | The Blade Itself            | Finished | Yes  | Yes |
 |                       |                          | Before They Are Hanged      | Finished | Yes  |     |
 |                       |                          | Last Argument of Kings      | Finished | Yes  |     |
+|-----------------------+--------------------------+-----------------------------+----------+------+-----|
 | Robin Hobb            | The Farseer Trilogy      | Assassin's Apprentice       | Finished | Yes  | Yes |
 |                       |                          | Royal Assassin              | Finished | Yes  |     |
 |                       |                          | Assassin's Quest            | Finished | Yes  |     |
 |                       | Tawny Man Trilogy        | Fool's Errand               | Finished | Yes  |     |
 |                       |                          | The Golden Fool             | Finished | Yes  |     |
 |                       |                          | Fool's Fate                 | Finished | Yes  |     |
+|-----------------------+--------------------------+-----------------------------+----------+------+-----|
 | Nicholas Eames        | The Band                 | Kings of the Wyld           | Finished | Yes  |     |
+|-----------------------+--------------------------+-----------------------------+----------+------+-----|
 | Dan Simmons           | Hyperion Cantos          | Hyperion                    | Finished | Yes  |     |
 |                       |                          | The Fall of Hyperion        | Finished | Yes  |     |
+|-----------------------+--------------------------+-----------------------------+----------+------+-----|
 | Michael J. Sullivan   | The Riyria Revelations   | Theft of Swords             | Finished | Yes  |     |
