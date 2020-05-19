@@ -6,30 +6,16 @@
 
 I'm an applied mathematician studying finite element methods.  Currently I'm
 employed by [[http://math.aalto.fi/en/][Aalto University, Department of Mathematics and Systems Analysis]] as
-a postdoctoral researcher, working in the project
-[[https://akareport.aka.fi/ibi_apps/WFServlet?IBIF_ex=x_HakKuvaus2&CLICKED_ON=&HAKNRO1=324611&UILANG=fi&TULOSTE=HTML][Effektiva finita element metoder inom kontinuummekanik]], 2019--22.
-Previously, I have worked in the forest, nuclear and marine industries,
-and enjoy continuously learning how mathematics can be applied to improve
-society.
+a postdoctoral researcher, working in the project [[https://akareport.aka.fi/ibi_apps/WFServlet?IBIF_ex=x_HakKuvaus2&CLICKED_ON=&HAKNRO1=324611&UILANG=fi&TULOSTE=HTML][Effektiva finita element
+metoder inom kontinuummekanik]], 2019--22.  I have previously worked in the
+forest, nuclear and marine industries, and enjoy continuously learning how
+mathematics can be used for the benefit of the society.
 
 * Research
 
 In 2018, I finished my PhD thesis on [[https://aaltodoc.aalto.fi/handle/123456789/31486][Finite Element Methods for Contact Problems]]
 which was funded by [[https://skr.fi/][Finnish Cultural Foundation]].  You can find my articles
 [[https://orcid.org/0000-0003-1611-5032][in Orcid]] together with links to free arXiv preprints.
-
-I enjoy all things computational despite having written most of my scientific
-papers on finite element methods for variational inequalities.  Here
-are some exceptions, not related to inequality-constraints:
-
-- [[https://arxiv.org/abs/1707.08396][A posteriori estimates for conforming Kirchhoff plate elements]].  We analysed
-  some old school finite element methods in the case of mesh adaptivity and more
-  general boundary conditions than was previously available in the literature.
-- [[https://www.sciencedirect.com/science/article/pii/S0307904X15001900][Nonlinear Reynolds equation for hydrodynamic lubrication]].  We demonstrated how
-  a classical dimension reduction of the Navier-Stokes equations must be
-  corrected in high pressure regime.
-- [[https://journal.austms.org.au/ojs/index.php/ANZIAMJ/article/download/14058/2175][Three ways to compute multiport inertance]].  We discussed an interesting
-  application of the Poisson equation in the context of microhydraulic systems.
 
 During my studies, I wrote an open source Python package for finite element
 assembly called [[https://github.com/kinnala/scikit-fem][scikit-fem]]. I still maintain and use it actively, and think its
