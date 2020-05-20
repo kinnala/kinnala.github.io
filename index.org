@@ -1,23 +1,41 @@
-#+TITLE:  Personal notes
+#+TITLE:  Tom Gustafsson, D.Sc. (Tech.)
 #+AUTHOR: T. Gustafsson
-#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="org2.css" />
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="org.css" />
 
 * Introduction
 
-I'm an applied mathematician studying finite element methods.  Currently I'm
-employed by [[http://math.aalto.fi/en/][Aalto University, Department of Mathematics and Systems Analysis]] as
-a postdoctoral researcher, working in the project [[https://akareport.aka.fi/ibi_apps/WFServlet?IBIF_ex=x_HakKuvaus2&CLICKED_ON=&HAKNRO1=324611&UILANG=fi&TULOSTE=HTML][Effektiva finita element
-metoder inom kontinuummekanik]], 2019--22.  I have previously worked in the
-forest, nuclear and marine industries, and enjoy continuously learning how
-mathematics can be used for the benefit of the society.
+I'm an applied mathematician focusing on numerical methods and scientific
+computing.  I'm currently employed by [[http://math.aalto.fi/en/][Aalto University, Department of
+Mathematics and Systems Analysis]] as a postdoctoral researcher, working in the
+Academy of Finland project [[https://akareport.aka.fi/ibi_apps/WFServlet?IBIF_ex=x_HakKuvaus2&CLICKED_ON=&HAKNRO1=324611&UILANG=fi&TULOSTE=HTML][Effektiva finita element metoder inom
+kontinuummekanik]], 2019--22.  I have professional R&D experience from the forest,
+nuclear, electronics and marine industries, and enjoy continuously learning how
+mathematics can be applied to benefit the society.
 
 * Research
 
-In 2018, I finished my PhD thesis on [[https://aaltodoc.aalto.fi/handle/123456789/31486][Finite Element Methods for Contact Problems]]
-which was funded by [[https://skr.fi/][Finnish Cultural Foundation]].  You can find my articles
-[[https://orcid.org/0000-0003-1611-5032][in Orcid]] together with links to free arXiv preprints.
+In 2018, I [[https://www.genealogy.math.ndsu.nodak.edu/id.php?id=255380][finished my D.Sc. dissertation]] on [[https://aaltodoc.aalto.fi/handle/123456789/31486][Finite Element Methods for Contact
+Problems]] which was funded mainly by the [[https://skr.fi/][Finnish Cultural Foundation]].  Afterwards
+I worked in two different industry positions and, finally, returned to academia
+in the beginning of 2020.  You can find my articles [[https://orcid.org/0000-0003-1611-5032][in Orcid]] together with links
+to free arXiv preprints.
 
 During my studies, I wrote an open source Python package for finite element
 assembly called [[https://github.com/kinnala/scikit-fem][scikit-fem]]. I still maintain and use it actively, and think its
-especially useful for learning about finite element methods.
-You can find examples from its [[https://kinnala.github.io/scikit-fem-docs/learning.html][documentation]].
+especially useful for learning about finite element methods and performing
+computational research.  You can find examples from its [[https://kinnala.github.io/scikit-fem-docs][documentation]].
+
+* Reverse acknowledgements
+
+I decided to start collecting acknowledgements and interesting references to my
+work for easier recollection of how my work benefited others.
+
+- In 2019, a research group at the University of Oxford used my finite element
+  libary in their [[https://doi.org/10.1149/osf.io/67ckj][tool for the mathematical modelling of batteries]].
+
+- In 2019, I was [[https://doi.org/10.3390/fluids4020098][acknowledged by Portuguese colleagues]] after discussions on
+  the implementation of numerical solvers for piezoviscous Reynolds equation.
+
+- In 2017, I helped a colleague (and a friend) studying quantum mechanics in the
+  implementation of a finite element solver and, as a consequence, [[https://doi.org/10.1063/1.5000908][was
+  acknowledged]] in the related scientific article.
