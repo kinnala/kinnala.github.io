@@ -11,9 +11,9 @@ Academy of Finland project [[https://akareport.aka.fi/ibi_apps/WFServlet?IBIF_ex
 kontinuummekanik]], 2019--22.  I also develop machine learning software as a part
 time Data Scientist at [[https://www.wartsila.com/eniram][Eniram Oy]] since January 2019.
 
-I have professional R&D experience from the forest, nuclear, consumer
-electronics and marine industries, and enjoy continuously learning more about
-the use of mathematics in the society.
+I have professional R&D experience from the forest, nuclear, smartphone and
+marine industries, and enjoy continuously learning more about the use of
+mathematics in the society.
 
 * Research
 
