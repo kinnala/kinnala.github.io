@@ -1,5 +1,6 @@
 #+TITLE:  Tom Gustafsson, D.Sc. (Tech.)
-#+AUTHOR: T. Gustafsson
+#+AUTHOR: Tom Gustafsson
+#+HTML_HEAD: <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
 #+HTML_HEAD: <link rel="stylesheet" type="text/css" href="org.css" />
 
 * Introduction
@@ -8,30 +9,26 @@ I'm an applied mathematician focusing on numerical methods and scientific
 computing.  I'm currently employed by [[http://math.aalto.fi/en/][Aalto University, Department of
 Mathematics and Systems Analysis]] as a postdoctoral researcher, working in the
 Academy of Finland project [[https://akareport.aka.fi/ibi_apps/WFServlet?IBIF_ex=x_HakKuvaus2&CLICKED_ON=&HAKNRO1=324611&UILANG=fi&TULOSTE=HTML][Effektiva finita element metoder inom
-kontinuummekanik]], 2019--22.  I also develop machine learning software as a part
-time Data Scientist at [[https://www.wartsila.com/eniram][Eniram Oy]] since January 2019.
-
-I have professional R&D experience from the forest, nuclear, smartphone and
-marine industries, and enjoy continuously learning more about the use of
-mathematics in the society.
+kontinuummekanik]], 2019--22.  I'm also developing machine learning software as a
+part time Data Scientist at [[https://www.wartsila.com/eniram][Eniram Oy]] since January 2019.
 
 * Research
 
 In 2018, I [[https://www.genealogy.math.ndsu.nodak.edu/id.php?id=255380][finished my D.Sc. dissertation]] on [[https://aaltodoc.aalto.fi/handle/123456789/31486][Finite Element Methods for Contact
-Problems]] which was funded mainly by the [[https://skr.fi/][Finnish Cultural Foundation]].  Afterwards
-I worked in two different industry positions and, finally, returned to academia
-in the beginning of 2020.  You can find my articles [[https://orcid.org/0000-0003-1611-5032][in Orcid]] together with links
-to arXiv preprints.
+Problems]] which was funded mainly by the [[https://skr.fi/][Finnish Cultural Foundation]].  You can
+find my articles in [[https://orcid.org/0000-0003-1611-5032][Orcid]] and [[https://scholar.google.com/citations?user=1NxplQcAAAAJ][Google Scholar]].  I often upload preprints to
+[[https://arxiv.org/a/0000-0003-1611-5032.html][arXiv]].
 
-During my studies, I wrote an open source Python package for finite element
+* Software
+
+In 2017–18, I wrote an open source Python package for finite element
 assembly called [[https://github.com/kinnala/scikit-fem][scikit-fem]]. I still maintain and use it actively, and think its
 especially useful for learning about finite element methods and performing
 computational research.  You can find examples from its [[https://kinnala.github.io/scikit-fem-docs][documentation]].
 
 * Reverse acknowledgements
 
-I decided to start collecting acknowledgements and interesting references to my
-work for easier recollection of how my work benefited others.
+Here are some interesting references to my work:
 
 - In 2019, a research group at the University of Oxford used my finite element
   libary in their [[https://doi.org/10.1149/osf.io/67ckj][tool for the mathematical modelling of batteries]].
@@ -39,6 +36,11 @@ work for easier recollection of how my work benefited others.
 - In 2019, I was [[https://doi.org/10.3390/fluids4020098][acknowledged by Portuguese colleagues]] after discussions on
   the implementation of numerical solvers for piezoviscous Reynolds equation.
 
-- In 2017, I helped a colleague (and a friend) studying quantum mechanics in the
-  implementation of a finite element solver and, as a consequence, [[https://doi.org/10.1063/1.5000908][was
-  acknowledged]] in the related scientific article.
+- In 2018, I received an [[https://into.aalto.fi/display/endoctoralsci/Dissertation+awards][award for an exceptionally distinguished D. Sc. dissertation]].
+
+- In 2017, I helped a colleague (and a friend) in the implementation of a finite
+  element solver and, as a consequence, [[https://doi.org/10.1063/1.5000908][was acknowledged in the related
+  scientific article]].
+
+- In 2014, I received an [[http://rmseura.tkk.fi/rmlehti/palkitut_artikkelit.html][article of the year award]] for my first ever scientific
+  publication.
