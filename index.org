@@ -19,6 +19,17 @@ Problems]] which was funded mainly by the [[https://skr.fi/][Finnish Cultural Fo
 find my articles in [[https://orcid.org/0000-0003-1611-5032][Orcid]] and [[https://scholar.google.com/citations?user=1NxplQcAAAAJ][Google Scholar]].  I often upload preprints to
 [[https://arxiv.org/a/0000-0003-1611-5032.html][arXiv]].
 
+In the past, I have volunteered to work as a peer reviewer for the following
+scientific journals:
+
+- [[https://journals.sagepub.com/home/mms][Mathematics and Mechanics of Solids]], 2020
+- [[https://www.esaim-m2an.org/][ESAIM: Mathematical Modelling and Numerical Analysis]], 2020
+- [[https://royalsocietypublishing.org/journal/rspa][Proceedings of the Royal Society A]], 2020
+- [[https://www.springer.com/journal/10543][BIT Numerical Mathematics]], 2020
+- [[https://www.degruyter.com/cmam][Computational Methods in Applied Mathematics]], 2018
+- [[https://rakenteidenmekaniikka.journal.fi/][Rakenteiden Mekaniikka]], 2018, 2017
+- [[https://www.journals.elsevier.com/applied-mathematics-and-computation][Applied Mathematics and Computation]], 2015
+
 * Software
 
 In 2017–18, I wrote an open source Python package for finite element
