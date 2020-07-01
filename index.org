@@ -14,9 +14,31 @@ kontinuummekanik]], 2019--22.
 * Research
 
 In 2018, I [[https://www.genealogy.math.ndsu.nodak.edu/id.php?id=255380][finished my D.Sc. dissertation]] on [[https://aaltodoc.aalto.fi/handle/123456789/31486][Finite Element Methods for Contact
-Problems]] which was funded mainly by the [[https://skr.fi/][Finnish Cultural Foundation]].  You can
-find my articles in [[https://orcid.org/0000-0003-1611-5032][Orcid]] and [[https://scholar.google.com/citations?user=1NxplQcAAAAJ][Google Scholar]].  I often upload preprints to
-[[https://arxiv.org/a/0000-0003-1611-5032.html][arXiv]].
+Problems]] which was funded mainly by the [[https://skr.fi/][Finnish Cultural Foundation]].  Below you
+can find a list of articles that I have coauthored and possible links to openly
+available versions.  Note that the preprints may differ from the published
+versions of the article.
+
+| No. | Title                                                                                         | Year | Status    | Published in                                                 | PDF available?                               |
+|-----+-----------------------------------------------------------------------------------------------+------+-----------+--------------------------------------------------------------+----------------------------------------------|
+|  18 | scikit-fem: A Python package for finite element assembly                                      | 2020 | Submitted |                                                              |                                              |
+|  17 | Nitsche's method for Kirchhoff plates                                                         | 2020 | Submitted |                                                              |                                              |
+|  16 | Nitsche's Master-Slave Method for Elastic Contact Problems                                    | 2019 | Accepted  |                                                              | https://arxiv.org/pdf/1912.08279             |
+|  15 | Numerical modelling of coupled linear dynamical systems                                       | 2019 | Submitted |                                                              | https://arxiv.org/pdf/1911.04219             |
+|  14 | On Nitsche's method for elastic contact problems                                              | 2020 | Published | SIAM Journal on Scientific Computing                         | https://arxiv.org/pdf/1902.09312             |
+|  13 | Nitsche's method for unilateral contact problems                                              | 2019 | Published | Portugaliae Mathematica                                      | https://arxiv.org/pdf/1805.04283             |
+|  12 | Error analysis of Nitsche's mortar method                                                     | 2019 | Published | Numerische Mathematik                                        | https://doi.org/10.1007/s00211-019-01039-5   |
+|  11 | A stabilised finite element method for the plate obstacle problem                             | 2019 | Published | BIT Numerical Mathematics                                    | https://doi.org/10.1007/s10543-018-0728-7    |
+|  10 | An adaptive finite element method for the inequality-constrained Reynolds equation            | 2018 | Published | Computer Methods in Applied Mechanics and Engineering        | https://arxiv.org/pdf/1711.04274             |
+|   9 | A posteriori estimates for conforming Kirchhoff plate elements                                | 2018 | Published | SIAM Journal on Scientific Computing                         | https://arxiv.org/pdf/1707.08396             |
+|   8 | Three ways to compute multiport inertance                                                     | 2018 | Published | ANZIAM Journal                                               | https://doi.org/10.21914/anziamj.v60i0.14058 |
+|   7 | On finite element formulations for the obstacle problem – mixed and stabilised methods        | 2017 | Published | Computational Methods in Applied Mathematics                 | N.A.                                         |
+|   6 | Mixed and stabilized finite element methods for the obstacle problem                          | 2017 | Published | SIAM Journal on Numerical Analysis                           | https://arxiv.org/pdf/1603.04257             |
+|   5 | A posteriori analysis of classical plate elements                                             | 2017 | Published | Rakenteiden Mekaniikka                                       | https://doi.org/10.23998/rm.65004            |
+|   4 | Nitsche’s method for the obstacle problem of clamped Kirchhoff plates                         | 2017 | Published | Numerical Mathematics and Advanced Applications ENUMATH 2017 | N.A.                                         |
+|   3 | Stochastic Galerkin approximation of the Reynolds equation with irregular film thickness      | 2017 | Published | Computers & Mathematics with Applications                    | N.A.                                         |
+|   2 | Nonlinear Reynolds equation for hydrodynamic lubrication                                      | 2015 | Published | Applied Mathematical Modelling                               | https://arxiv.org/pdf/1502.05993             |
+|   1 | A numerical study of the extended finite element method for linear elastic fracture mechanics | 2014 | Published | Rakenteiden Mekaniikka                                       |                                              |
 
 * Software
 
@@ -27,7 +49,10 @@ computational research.  You can find examples from its [[https://kinnala.github
 
 * Peer reviews
 
-In the past, I have volunteered to work as a peer reviewer for the following
+I like to accept invitations to volunteer as a peer reviewer if
+my schedule allows it and if I can confidently contribute
+to the topic.
+In the past, I have volunteered for the following
 scientific journals:
 
 - [[https://journals.sagepub.com/home/mms][Mathematics and Mechanics of Solids]], 2020
@@ -38,7 +63,7 @@ scientific journals:
 - [[https://rakenteidenmekaniikka.journal.fi/][Rakenteiden Mekaniikka]], 2018, 2017
 - [[https://www.journals.elsevier.com/applied-mathematics-and-computation][Applied Mathematics and Computation]], 2015
 
-* Reverse acknowledgements
+* Reverse references
 
 Here are some interesting references to my work:
 
