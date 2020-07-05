@@ -14,16 +14,14 @@ kontinuummekanik]], 2019--22.
 * Research
 
 In 2018, I [[https://www.genealogy.math.ndsu.nodak.edu/id.php?id=255380][finished my D.Sc. dissertation]] on [[https://aaltodoc.aalto.fi/handle/123456789/31486][Finite Element Methods for Contact
-Problems]] which was funded mainly by the [[https://skr.fi/][Finnish Cultural Foundation]].  Below you
-can find a list of articles that I have coauthored and possible links to openly
-available versions.  Note that the preprints may differ from the published
-versions of the article.
+Problems]] which was funded mainly by the [[https://skr.fi/][Finnish Cultural Foundation]].  Below is a
+list of articles that I have coauthored and links to openly available versions.
 
 | No. | Title                                                                                         | Year | Status    | Published in                                                 | PDF available?                               |
 |-----+-----------------------------------------------------------------------------------------------+------+-----------+--------------------------------------------------------------+----------------------------------------------|
 |  18 | scikit-fem: A Python package for finite element assembly                                      | 2020 | Submitted |                                                              |                                              |
-|  17 | Nitsche's method for Kirchhoff plates                                                         | 2020 | Submitted |                                                              |                                              |
-|  16 | Nitsche's Master-Slave Method for Elastic Contact Problems                                    | 2019 | Accepted  |                                                              | https://arxiv.org/pdf/1912.08279             |
+|  17 | Nitsche's method for Kirchhoff plates                                                         | 2020 | Submitted |                                                              | https://arxiv.org/pdf/2007.00403             |
+|  16 | Nitsche's Master-Slave Method for Elastic Contact Problems                                    | 2019 | Accepted  | Numerical Mathematics and Advanced Applications ENUMATH 2019 | https://arxiv.org/pdf/1912.08279             |
 |  15 | Numerical modelling of coupled linear dynamical systems                                       | 2019 | Submitted |                                                              | https://arxiv.org/pdf/1911.04219             |
 |  14 | On Nitsche's method for elastic contact problems                                              | 2020 | Published | SIAM Journal on Scientific Computing                         | https://arxiv.org/pdf/1902.09312             |
 |  13 | Nitsche's method for unilateral contact problems                                              | 2019 | Published | Portugaliae Mathematica                                      | https://arxiv.org/pdf/1805.04283             |
