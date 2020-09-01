@@ -19,7 +19,7 @@ list of articles that I have coauthored and links to openly available versions.
 
 | No. | Title                                                                                         | Year | Status    | Published in                                                 | PDF available?                               |
 |-----+-----------------------------------------------------------------------------------------------+------+-----------+--------------------------------------------------------------+----------------------------------------------|
-|  18 | scikit-fem: A Python package for finite element assembly                                      | 2020 | Submitted |                                                              |                                              |
+|  18 | scikit-fem: A Python package for finite element assembly                                      | 2020 | Published | Journal of Open Source Software                              | https://doi.org/10.21105/joss.02369          |
 |  17 | Nitsche's method for Kirchhoff plates                                                         | 2020 | Submitted |                                                              | https://arxiv.org/pdf/2007.00403             |
 |  16 | Nitsche's Master-Slave Method for Elastic Contact Problems                                    | 2019 | Accepted  | Numerical Mathematics and Advanced Applications ENUMATH 2019 | https://arxiv.org/pdf/1912.08279             |
 |  15 | Numerical modelling of coupled linear dynamical systems                                       | 2019 | Submitted |                                                              | https://arxiv.org/pdf/1911.04219             |
