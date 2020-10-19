@@ -65,6 +65,9 @@ scientific journals:
 
 Here are some interesting references to my work:
 
+- In 2020, my finite element library was used in the creation of a [[https://github.com/Argonne-National-Laboratory/srlife][solar
+  receiver life estimation tool]] at Argonne National Labs.
+
 - In 2019, a research group at the University of Oxford used my finite element
   libary in their [[https://doi.org/10.1149/osf.io/67ckj][tool for the mathematical modelling of batteries]].
 
