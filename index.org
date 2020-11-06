@@ -36,7 +36,7 @@ list of articles that I have coauthored and links to openly available versions.
 |   4 | Nitsche’s method for the obstacle problem of clamped Kirchhoff plates                         | 2017 | Published | Numerical Mathematics and Advanced Applications ENUMATH 2017 | N.A.                                         |
 |   3 | Stochastic Galerkin approximation of the Reynolds equation with irregular film thickness      | 2017 | Published | Computers & Mathematics with Applications                    | N.A.                                         |
 |   2 | Nonlinear Reynolds equation for hydrodynamic lubrication                                      | 2015 | Published | Applied Mathematical Modelling                               | https://arxiv.org/pdf/1502.05993             |
-|   1 | A numerical study of the extended finite element method for linear elastic fracture mechanics | 2014 | Published | Rakenteiden Mekaniikka                                       |                                              |
+|   1 | A numerical study of the extended finite element method for linear elastic fracture mechanics | 2014 | Published | Rakenteiden Mekaniikka                                       | [[https://github.com/kinnala/kinnala.github.io/files/5503062/RakMek_47_3_2014_2.pdf][From GitHub]]                                  |
 
 * Software
 
