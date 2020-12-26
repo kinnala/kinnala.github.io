@@ -1,5 +1,5 @@
-#+TITLE:  Tom Gustafsson, D.Sc. (Tech.)
-#+AUTHOR: Tom Gustafsson
+#+TITLE:  T. Gustafsson, D.Sc. (Tech.)
+#+AUTHOR: T. Gustafsson
 #+HTML_HEAD: <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
 #+HTML_HEAD: <link rel="stylesheet" type="text/css" href="org.css" />
 
@@ -66,6 +66,9 @@ scientific journals:
 * Reverse references
 
 Here are some interesting references to my work:
+
+- In 2020, my finite element library was used in a paper on the approximation
+  of a [[https://arxiv.org/abs/2011.14064][fourth order singular perturbation problem]].
 
 - In 2020, my finite element library was used in the creation of a [[https://github.com/Argonne-National-Laboratory/srlife][solar
   receiver life estimation tool]] at Argonne National Labs.
